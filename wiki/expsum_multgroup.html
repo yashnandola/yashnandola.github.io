@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-02-25" />
+  <title>Exponential sums on multiplicative groups</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Exponential sums on multiplicative groups</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<p>If <span class="math inline">\(G \subseteq \mathbb{F}_P^{*}\)</span> is a small multiplicative subgroup of <span class="math inline">\(\mathbb{F}_p^{*}\)</span>, it is likely that <span class="math inline">\(G\)</span>, and all the cosets <span class="math inline">\({xG}_{x \in \mathbb{F}_p^{*}}\)</span> are going to be well-distributed in <span class="math inline">\(\mathbb{F}_p\)</span>. This is the theme of the <em>sum-product phenomenon</em> in number theory.</p>
+<p>Fix the notation <span class="math inline">\(e_{p}(x) = e^{\frac{2\pi i}{p} x}\)</span>. We state the following theorem, as given in <span class="citation" data-cites="BGK06">[<a href="#ref-BGK06" role="doc-biblioref">1</a>]</span>.</p>
+<div class="theorem">
+<p>There exist <span class="math inline">\(C_1,C_2&gt;0\)</span> such that whenever <span class="math inline">\(G \subseteq \mathbb{F}_p^{*}\)</span> is a finite group such that <span class="math inline">\(|G| \ge p^{\delta}\)</span>, we have <span class="math display">\[\begin{align}
+    \max_{x \in \mathbb{F}_p^{*} } \left| \frac{1}{|G|}  \sum_{y \in G}^{} e_{p}(xy)\right| \le p^{-\varepsilon},
+  \end{align}\]</span> where <span class="math inline">\(\varepsilon = \exp \left( {\frac{-C_1}{\delta^{C_2}}} \right)\)</span>.</p>
+</div>
+<div class="remark">
+<ol type="1">
+<li>The numbers <span class="math inline">\(C_1,C_2\)</span> are independent of <span class="math inline">\(p\)</span>.</li>
+<li>Note that the LHS is trivially <span class="math inline">\(\le 1\)</span>. The bound given above becomes closer to this trivial bound more and more as <span class="math inline">\(\delta \rightarrow 0\)</span> because of the nature of dependence of <span class="math inline">\(\varepsilon\)</span> on <span class="math inline">\(\delta\)</span>.</li>
+</ol>
+</div>
+<p>So this theorem basically tells us that when <span class="math inline">\(G \subseteq \mathbb{F}_p^{*}\)</span> is a subgroup, arithmetic progressions inside <span class="math inline">\(G\)</span> become highly unlikely.</p>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-BGK06" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">J. Bourgain, A. A. Glibichuk, &amp; S. V. Konyagin, Estimates for the number of sums and products and for exponential sums in fields of prime order. <em>Journal of the London Mathematical Society</em>, <strong>73</strong> (2006) 380–398.</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on February 25, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

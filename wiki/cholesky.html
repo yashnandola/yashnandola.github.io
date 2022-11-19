@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2021-10-11" />
+  <title>Cholesky Decomposition</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Cholesky Decomposition</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<p>To understand the setup here, refer to <a href="rss_algebra.html">the page on real semisimple algebras</a></p>
+<p>Let <span class="math inline">\(A\)</span> be a semisimple <span class="math inline">\(\mathbb{R}\)</span>-algebra with a positive involution <span class="math inline">\((\ )^*\)</span>. The algebra <span class="math inline">\(M_k(A)\)</span> is also a semisimple <span class="math inline">\(\mathbb{R}\)</span>-algebra and the involution <span class="math inline">\((\ )^{*}\)</span> can be easily extended to <span class="math inline">\(M_k(A)\)</span> via the mapping <span class="math inline">\([a_{ij}] \mapsto [a_{ji}^{*}]\)</span>. We will denote this involution with same notation <span class="math inline">\((\ )^{*}\)</span>. With this, the meaning of positive definite and symmetric matrices in <span class="math inline">\(M_k(A)\)</span> is unambiguous. For clarity, we will distinguish between the norms and traces of <span class="math inline">\(A\)</span> and <span class="math inline">\(M_k(A)\)</span> by using the notations <span class="math inline">\(\mathop{\mathrm{tr}}_{A}, \mathop{\mathrm{N}}_{A}, \mathop{\mathrm{tr}}_{M_k(A)}, \mathop{\mathrm{N}}_{M_k(A)}\)</span> whenever appropriate.</p>
+For any <span class="math inline">\(a \in M_k(A)\)</span>, we can create a bilinear form on <span class="math display">\[\beta_{a}:A^{k} \times A^{k} \rightarrow \mathbb{R}\]</span> as <span class="math inline">\(\beta_{a}(x,y) = \sum_{i,j=1}^{k} \mathop{\mathrm{tr}}_{A}( x_{i}^{*} a_{ij} y_{j})\)</span>. The following lemma then approves that the conventional intuition of positive definiteness is in confirmation with the definition above.
+<div class="lemma">
+<p>An element <span class="math inline">\(a \in M_k(A)\)</span> is positive definite if and only if <span class="math inline">\(\beta_{a}\)</span> is a positive definite quadratic form on <span class="math inline">\(A^{k}\)</span> as an <span class="math inline">\(\mathbb{R}\)</span>-vector space.</p>
+</div>
+<p>This lemma leads to the following decomposition for quadratic forms <span class="math inline">\(\beta_{a}\)</span> induced by symmetric positive definite matrices <span class="math inline">\(a\)</span>. What the upcoming theorem is really going to tell us is that the quadratic form <span class="math inline">\(\beta_{a}\)</span> can be <em>diagonalized</em> up to a <em>triangular</em> change of basis.</p>
+When <span class="math inline">\(A =\mathbb{R}\)</span>, this is simply the Cholesky decomposition of real symmetric positive definite matrices. In <span class="citation" data-cites="W58">[<a href="#ref-W58" role="doc-biblioref">1</a>]</span>, the theorem below is referred to as the Babylonian reduction theorem, perhaps because it is spiritually similar to <em>completing the square</em> in a quadratic equation of one variable.
+<div class="theorem">
+<p> Let <span class="math inline">\(a \in M_k(A)\)</span> be a symmetric positive definite matrix. Then there is an upper triangular matrix <span class="math inline">\(t \in M_k(A)\)</span> with <span class="math inline">\(1_{A}\)</span> on the diagonal entries, and a diagonal matrix <span class="math inline">\(d\)</span> with symmetric positive definite elements of <span class="math inline">\(A\)</span> on the diagonal such that <span class="math display">\[\begin{align}
+    a = t^{*} d t.
+  \end{align}\]</span> That is, writing explicitly in terms of <span class="math inline">\(A\)</span>-valued matrix entries, we can find <span class="math inline">\(d,t \in M_{k}(A)\)</span> such that <span class="math display">\[\begin{align}
+    \begin{bmatrix} 
+      a_{11}  &amp; a_{12} &amp;  &amp; a_{1k} \\
+      a_{21}  &amp; a_{22} &amp;  &amp; a_{2k} \\
+        &amp;                &amp; \ddots &amp;  \\
+      a_{k1}  &amp; a_{k2} &amp;  &amp; a_{kk} 
+    \end{bmatrix}
+    = &amp; 
+    \begin{bmatrix} 
+      1_A  &amp;        &amp;  &amp;        \\
+      t_{12}^{*}  &amp; 1_A &amp;  &amp;        \\
+            &amp; \vdots               &amp; \ddots &amp;  \\
+        t_{1k}^{*}  &amp; t_{2k}^{*} &amp;  &amp; 1_A      
+    \end{bmatrix}
+    \begin{bmatrix} 
+      d_{11}  &amp;        &amp;  &amp;        \\
+              &amp; d_{22} &amp;  &amp;        \\
+        &amp;                &amp; \ddots &amp;  \\
+              &amp;        &amp;  &amp; d_{kk} 
+    \end{bmatrix}
+    \begin{bmatrix} 
+      1_A  &amp; t_{12} &amp; \dots &amp; t_{1k} \\
+              &amp; 1_A      &amp;  &amp; t_{2k} \\
+        &amp;                &amp; \ddots &amp;  \\
+              &amp;        &amp;  &amp; 1_A      
+    \end{bmatrix}\\
+     = &amp; \label{eq:decomp}
+    \begin{bmatrix} 
+      d_{11}  &amp; d _{11}t_{12} &amp; \dots &amp; d _{11} t_{1k} \\
+      t_{12}^{*} d_{11}        &amp; t_{21}^{*}d_{11} t_{12} + d_{22}      &amp;  &amp;  t_{12}^{*} d_{11} t_{1k} +  d_{22}t_{2k} \\
+     \vdots &amp;                &amp; \ddots &amp;  \\
+     t_{1k}^{*} d_{11}       &amp;        &amp;  &amp; \sum_{i=1}^{k} t_{ki}^{*} d_{ii} t_{ik}
+    \end{bmatrix}.\\
+  \end{align}\]</span></p>
+</div>
+<div class="proof">
+<p>This is what we want in symbols. <span class="math display">\[\begin{align}
+   a_{ij} = \sum_{r = 1}^{ \min(i,j)} t^{*}_{ri} d_{rr} t_{rj}.
+ \end{align}\]</span> Here, the diagonal entries <span class="math inline">\(t_{ii}=1_{A}\)</span>. Note that by <span class="math inline">\(t^{*}_{ri}\)</span>, we mean <span class="math inline">\((t_{ri})^{*} = (t^{*})_{ir}\)</span>.</p>
+<p>This implies for <span class="math inline">\(i \le j\)</span>, we get <span class="math display">\[\begin{align}
+   \label{eq:dii}d_{ii} =&amp; a_{ii} -  \sum_{j = 1}^{ i-1} t_{ji}^{*} d_{jj} t_{ij}.\\
+   \label{eq:aij}t_{ij} =&amp; d_{ii}^{-1} \left(  a_{ij} - \sum_{r = 1}^{ i-1 }  t_{r i}^{*} d_{rr} t_{rj} \right)  .
+ \end{align}\]</span> The two previous equations can be used to inductively generate the matrix elements <span class="math inline">\(d_{ii}\)</span> and <span class="math inline">\(t_{ij}\)</span> by calculating them row-wise from top to bottom. But how do we know that <span class="math inline">\(d_{ii}^{-1}\)</span> will exist at every stage of the induction? Let us show this by induction on <span class="math inline">\(i\)</span>. For <span class="math inline">\(i=1\)</span>, it is clear that <span class="math inline">\(a_{11} = d_{11}\)</span> and <span class="math inline">\(a_{11}\)</span> is positive definite since for <span class="math inline">\(x \in A\)</span>, <span class="math inline">\(\mathop{\mathrm{tr}}_{A}(x^{*} a_{11} x ) = \beta_{a}(x,0,0,\dots,0)\)</span> non-negative and zero only when <span class="math inline">\(x=0\)</span>.</p>
+<p>For the general case, note that any upper triangular matrix <span class="math inline">\(t&#39;\)</span> with units in the diagonal entries admits an inverse in <span class="math inline">\(M_{k&#39;}(A)\)</span>. The entries of <span class="math inline">\(t&#39;^{-1}\)</span> will be some non-commutative polynomials in the entries of <span class="math inline">\(t&#39;\)</span> which one can find inductively via ``forward substitution’’.</p>
+<p>With this, we can conclude that whenever we write <span class="math inline">\(a&#39; \in M_{k&#39;}(A)\)</span> that is symmetric and positive definite and wherever a diagonal matrix <span class="math inline">\(d&#39;\)</span> and a unit upper triangular matrix <span class="math inline">\(t&#39;\)</span> exist so that <span class="math inline">\({a&#39;} = t&#39;^{*} d&#39; t&#39;\)</span>, the diagonal entries of <span class="math inline">\(d&#39; = {t&#39;^{*}}^{-1} a&#39; t&#39;^{-1}\)</span> are automatically symmetric and positive definite. This follows from <span class="math inline">\(d&#39;\)</span> itself being symmetric and positive definite. The fact that <span class="math inline">\(d&#39;\)</span> is symmetric is easy to compute and to see positive definiteness, observe that for any <span class="math inline">\(x,y \in M_{k&#39;}(A)\)</span>, we get <span class="math inline">\(\mathop{\mathrm{tr}}_{M_k(A)}( x ^{*} d&#39; y) = \mathop{\mathrm{tr}}_{M_k&#39;(A)}( ( t&#39;^{-1} x )^{*} a&#39; (t&#39;^{-1} y ))\)</span>. Hence in particular, the diagonal entries of <span class="math inline">\(d&#39;\)</span> are invertible in <span class="math inline">\(A\)</span>. Note that this claim is valid for all <span class="math inline">\(k&#39; \le k\)</span> and it will now aid us in induction.</p>
+<p>Suppose that <span class="math inline">\(\{ d_{ii}\}_{i=1}^{k&#39;}\)</span> are positive definite. Then we can compute <span class="math inline">\(d_{(k&#39;+1)(k&#39;+1)}\)</span> and <span class="math inline">\(\{ t_{(k&#39;+1)j}\}_{ j \ge k&#39;+1 }\)</span>. Now note that this gives us a solution for the given statement when <span class="math inline">\(k\)</span> is replaced by <span class="math inline">\(k&#39;+1\)</span>. Hence each <span class="math inline">\(\{d_{ii}\}_{i=1}^{k&#39;+1}\)</span> is symmetric and positive definite and in particular <span class="math inline">\(d_{(k&#39;+1)(k&#39;+1)}\)</span> is invertible.</p>
+</div>
+<div class="remark">
+<p>The decomposition above is unique, because the elements <span class="math inline">\(d_{ii}\)</span> and <span class="math inline">\(t_{ij}\)</span> are completely determined by Equation ().</p>
+</div>
+<div class="remark">
+<p>It is possible to view <span class="math inline">\(A^{k}\)</span> as a <span class="math inline">\((k \dim_{\mathbb{R}}A)\)</span>-dimensional vector space over <span class="math inline">\(\mathbb{R}\)</span> and all the matrices in <span class="math inline">\(M_k(A)\)</span> can be seen as block matrices with each entry <span class="math inline">\(a_{ij}\)</span> being replaced by its left-multiplication matrix as an element of <span class="math inline">\(A\)</span>. From this point of view, Theorem  is the same thing as the block matrix variant of the Cholesky decomposition.</p>
+</div>
+<p> </p>
+<p>There is a further improvement that is possible to be done here using the proposition below.</p>
+<div class="proposition">
+<p>Suppose that <span class="math inline">\(a \in A\)</span> is a positive definite symmetric element. Then, there exists another positive definite symmetric element <span class="math inline">\(b \in A\)</span> such that <span class="math inline">\(b^{2} = a\)</span>. </p>
+</div>
+<div class="proof">
+<p>Just like in the proof of <a href="norm_trace.html">Norm-Trace</a> inequality, using the spectral theorem for positive definite matrices, we can construct a basis <span class="math inline">\(\{ e_1, e_2,\dots, e_{d}\}\)</span> of <span class="math inline">\(A\)</span>, orthonormal with respect to <span class="math inline">\(x \mapsto \mathop{\mathrm{tr}}(x^{*}x)\)</span>, such that the matrix <span class="math inline">\(a_{ij} = \mathop{\mathrm{tr}}(e_{i}^{*} a e_{j})\)</span> is a diagonal matrix. Then the <span class="math inline">\(a_{ii}\)</span> in the diagonal are the non-zero entries and are positive.</p>
+<p>Note that the map <span class="math inline">\(a \mapsto a_{ij}\)</span> is a faithful representation, since the matrix <span class="math inline">\(a_{ij}\)</span> is just the left-multiplication matrix with respect to the basis <span class="math inline">\(\{ e_{i}\}_{i=1}^{d}\)</span>. Moreover, in general <span class="math inline">\(b \in A\)</span> is positive-definite if and only if the matrix <span class="math inline">\(b_{ij}= \mathop{\mathrm{tr}}(e_i^{*} b e_{j})\)</span> is positive-definite and is symmetric if and only if <span class="math inline">\(b_{ij}=(b^{*})_{ij} = b_{ji}^{*}\)</span>. In terms of this matrix representation, finding <span class="math inline">\(b \in A\)</span> such that <span class="math inline">\(b^{2} = a\)</span> is the same as showing that the diagonal matrix with diagonal entries <span class="math inline">\(\sqrt{a_{ii}}\)</span> lies in the image of this representation.</p>
+<p>To see this, note that there exists a polynomial <span class="math inline">\(f(x) \in \mathbb{R}[X]\)</span> such that <span class="math inline">\(f(a_{ii}) = \sqrt{a_{ii}}\)</span> for <span class="math inline">\(i \in \{ 1,2,\dots,d\}\)</span>. Then put <span class="math inline">\(b = f(a) \in A\)</span> and this satisfies all the requirements.</p>
+</div>
+<div class="corollary">
+<p> For every positive definite symmetric element <span class="math inline">\(a \in A\)</span>, <span class="math inline">\(a = b^{*}b\)</span> for some positive defining symmetric <span class="math inline">\(b \in A\)</span>.</p>
+<p>Every element <span class="math inline">\(a \in M_k(A)\)</span> that is positive definite can be written in the form of <span class="math display">\[\begin{align}
+    a  = t^{*} b^{*} b t = p^{*}p,
+  \end{align}\]</span> where <span class="math inline">\(t \in M_k(A)\)</span> is upper triangular with <span class="math inline">\(1_{A}\)</span> on the diagonal, <span class="math inline">\(b \in M_k(A)\)</span> is diagonal and <span class="math inline">\(p \in M_k(A)\)</span> is just upper triangular.</p>
+</div>
+<div class="proof">
+<p>Use Cholesky decomposition and decompose <span class="math inline">\(a\)</span> as <span class="math inline">\(t^{*}dt\)</span>. Then each diagonal entry of <span class="math inline">\(d\)</span> can be split as <span class="math inline">\(d_{ii} = b_{ii}^{*}b_{ii}\)</span> according to the previous corollary.</p>
+</div>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-W58" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">A. Weil, <em>Discontinuous subgroups of classical groups: lectures</em> (University of Chicago, 1958).</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on October 11, 2021.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

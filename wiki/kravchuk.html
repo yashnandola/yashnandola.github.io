@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-02-02" />
+  <title>Kravchuk polynomials</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Kravchuk polynomials</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#fourier-transforms-of-spheres">Fourier transforms of spheres</a></li>
+<li><a href="#properties">Properties</a>
+<ul>
+<li><a href="#exchanging-index-and-argument">Exchanging index and argument</a></li>
+<li><a href="#power-series">Power series</a></li>
+<li><a href="#recurrence-formula">Recurrence formula</a>
+<ul>
+<li><a href="#recursion-on-indices">Recursion on indices</a></li>
+<li><a href="#recursion-on-argument">Recursion on argument</a></li>
+</ul></li>
+<li><a href="#christoffel-darboux-formula">Christoffel-Darboux formula</a></li>
+<li><a href="#multiplication-of-kravchuk-polynomials">Multiplication of Kravchuk polynomials</a></li>
+</ul></li>
+<li><a href="#interlacing-of-roots">Interlacing of roots</a>
+<ul>
+<li><a href="#asymptoptic-growth-of-first-root">Asymptoptic growth of first root</a></li>
+</ul></li>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<p>Kravchuk polynomials are defined by the following equation. For <span class="math inline">\(k \in \mathbb{N}\)</span>, <span class="math inline">\(2 \le q \in \mathbb{N}\)</span> and <span class="math inline">\(n \in \mathbb{N}\)</span>, we have</p>
+<p><span class="math display">\[\begin{equation}\label{eq:defi_of_krav}
+  K_k(x;n,q): = \sum_{j=0}^{ k} (-1)^{j} (q-1) ^{k-j} {x \choose j} { n - x \choose k - j},
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\({ x \choose j}\)</span> means <span class="math inline">\(\frac{(x)_j}{j!}\)</span>, where <span class="math inline">\((x)_j\)</span> is the falling factorial given by <span class="math display">\[\begin{equation}
+  (x)_j := x(x-1)(x-2)\dots (x-j+1).
+\end{equation}\]</span></p>
+<p>We will denote <span class="math inline">\(K_k(x;n,q)\)</span> as <span class="math inline">\(K_k(x)\)</span> when there is no ambiguity. Note that <span class="math inline">\(K_0(x)\)</span> is always the constant polynomial <span class="math inline">\(1\)</span>. Also, using the fact that the degree of <span class="math inline">\((x)_j\)</span> is <span class="math inline">\(j\)</span> and <span class="math inline">\((n-x)_{k-j}\)</span> is <span class="math inline">\(k-j\)</span>, the degree of <span class="math inline">\(K_k(x;n,q)\)</span> can be shown to be <span class="math inline">\(k\)</span> in <span class="math inline">\(x\)</span> (the coefficient of <span class="math inline">\(x^{k}\)</span> in <span class="math inline">\(K_k(x;n,q)\)</span> is <span class="math inline">\(\frac{(-q)^k}{k!}\)</span>).</p>
+<h1 id="fourier-transforms-of-spheres">Fourier transforms of spheres</h1>
+<p>Choose a primitive <span class="math inline">\(q\)</span>th root of unity <span class="math inline">\(\zeta \in \mathbb{C}\)</span>. Let <span class="math inline">\(Q^n\)</span> be the <a href="hamming_space.html">Hamming space</a> with <span class="math inline">\(q\)</span> alphabets.</p>
+<div class="lemma">
+<p>For any fixed <span class="math inline">\(x \in Q^n\)</span> whose weight is <span class="math inline">\(w(x)\)</span>, the following equation holds for a fixed <span class="math inline">\(k\)</span>. <span class="math display">\[\begin{equation}
+    \sum_{\substack{y \in Q^n \\ w(y) = k}}^{ } \zeta^{\langle x, y\rangle} = K_k( w(x) ) .
+   \end{equation}\]</span> Here <span class="math inline">\(\langle x, y\rangle\)</span> is the sum <span class="math inline">\(\sum_{1\le i \le n}^{} x_i y_i\)</span>, where <span class="math inline">\(x=(x_1,x_2, \dots , x_n)\)</span> and <span class="math inline">\(y = (y_1, y_2 ,\dots ,y_n)\)</span>.</p>
+</div>
+<p>The proof follows via direct computations.</p>
+<p>Consider the <span class="math inline">\(\mathbb{C}\)</span>-vector space <span class="math inline">\(H=\mathop{\mathrm{Maps}}(Q^n, \mathbb{C})\)</span> and recall the <a href="hamming_fourier.html">Fourier transform</a> <span class="math inline">\(\mathcal{F}\)</span>. The above lemma tells us that if <span class="math inline">\(0 \le k \le n\)</span> is fixed and <span class="math inline">\(f_k=\mathbb{I}_{w( \bullet ) = k} \in H\)</span> is the indicator function that gives 1 if weight of the argument is <span class="math inline">\(k\)</span> and 0 otherwise, then <span class="math inline">\(\mathcal{F}(f_k)(x)=K_{k}(w(x))\)</span>.</p>
+<p>In this interpretation, Kravchuk polynomials are Fourier transforms of spherical distributions. Hence, they are analogous to <a href="bessel.html">Bessel functions</a>.</p>
+<h1 id="properties">Properties</h1>
+<p>Using the <a href="hamming_fourier.html">Fourier transform on Hamming spaces</a>, we can prove a lot of properties of the Kravchuk polynomials.</p>
+<h2 id="exchanging-index-and-argument">Exchanging index and argument</h2>
+<div class="lemma">
+<p><span class="math display">\[\begin{equation}
+    (q-1)^{i} {n \choose i} K_k(i) = (q-1)^{k}{n \choose k} K_i(k),
+  \end{equation}\]</span> where <span class="math inline">\(i, k \in \left\{ 0,1,\dots,n \right\}\)</span>. </p>
+</div>
+<div class="proof">
+<p><span class="math display">\[\begin{align}
+    (q-1)^{i} {n \choose i} K_k(i) = \sum_{w(x) = k} \sum_{w(y) = i}^{} \zeta^{\langle x,y\rangle}   =  (q-1)^{k}{n \choose k} K_i(k),
+  \end{align}\]</span></p>
+</div>
+<h2 id="power-series">Power series</h2>
+<div class="lemma">
+For a formal variable <span class="math inline">\(z\)</span>, the following holds. <span class="math display">\[\begin{equation}
+     \sum_{ k = 0 }^{ n} K_k(x) z^k = (1+(q-1)z)^{n-x} (1-z)^x.\end{equation}\]</span> 
+</div>
+<div class="proof">
+It is immediate after using the binomial series for the two multiplicants on the right side.
+</div>
+<h2 id="recurrence-formula">Recurrence formula</h2>
+<h3 id="recursion-on-indices">Recursion on indices</h3>
+<div class="lemma">
+<p>For <span class="math inline">\(k \in \{ 1,\dots, n-1\}\)</span>, <span class="math display">\[\begin{equation}\label{eq:recur_on_krav}
+    (k+1)K_{k+1}(x) = \left( k + (q-1)(n-k) -qx\right) K_k(x) - (q-1)(n-k+1)K_{k-1}(x) .
+\end{equation}\]</span></p>
+</div>
+<div class="proof">
+<p>Since the degree on either side is <span class="math inline">\(k+1 \le n\)</span>, it is sufficient to show the equality for <span class="math inline">\(x = 0,1,\dots,n\)</span>. So we substitute <span class="math inline">\(x = w(y)\)</span> where <span class="math inline">\(y \in Q^n\)</span>, and hence we need to prove the equality for all <span class="math inline">\(y \in Q^n\)</span>. What we therefore really want to show is the following equality for all $ y Q^n$,</p>
+<p><span class="math display">\[\begin{align}
+    w(y)  K_k( w(y)) = - \left( \frac{k+1}{q} \right) K_{k+1}( w(y)) + \left( \frac{k}{q} + \left( 1 - \frac{1}{q} \right) \left( n-k \right) \right) K_k( w(y)) \\ - \left( 1- \frac{1}{q} \right)(n-k+1) K_{k-1}(w(y)).
+    \label{eq:equality_in_U}
+  \end{align}\]</span></p>
+<p>Now since we know that <span class="math inline">\(K_k \circ w = \mathcal{F}(f_k)\)</span>, where <span class="math inline">\(f_k\)</span> is the weight-indicator function <span class="math inline">\(\mathbb{I}_{w(\bullet)=k}\)</span>. Now define the function <span class="math inline">\(h \in U\)</span> as</p>
+<p><span class="math display">\[\begin{equation}
+    h(x): =  \begin{cases}n\left( 1- \frac{1}{q} \right) &amp; \text{if } w(x) = 0 \\ -\frac{1}{q} &amp; \text{if } w(x) =1 \\ 0 &amp; \text{otherwise} \end{cases} .
+    \label{eq:defi_of_h}
+  \end{equation}\]</span></p>
+<p>We invite the reader to check that <span class="math inline">\(\mathcal{F}(h)=w\)</span>, the weight function. Now using the <a href="hamming_fourier.html">convolution theorem</a> of this Fourier transform, we modify this and get <span class="math display">\[\begin{align}
+    \mathcal{F}(h * f_k) = - \left( \frac{k+1}{q} \right) \mathcal{F}(f_{k+1}) + \left( \frac{k}{q} + \left( 1 - \frac{1}{q} \right) \left( n-k \right) \right)  \mathcal{F}(f_k) \\ - \left( 1- \frac{1}{q} \right)(n-k+1) \mathcal{F}(f_{k-1}).
+  \end{align}\]</span> Since <span class="math inline">\(\mathcal{F}\)</span> is a <span class="math inline">\(\mathbb{C}\)</span>-linear isomorphism, we only need to prove that the following is true.</p>
+<p><span class="math display">\[\begin{align}
+    h * f_k = - \left( \frac{k+1}{q} \right) f_{k+1} + \left( \frac{k}{q} + \left( 1 - \frac{1}{q} \right) \left( n-k \right) \right)  f_k  - \left( 1- \frac{1}{q} \right)(n-k+1) f_{k-1}.
+  \end{align}\]</span> This now is quite easy to check. For any <span class="math inline">\(y \in Q^n\)</span>, we know that <span class="math inline">\(h*f_k(y) = \sum_{x \in Q^n}^{} h(x) f_k(y-x)\)</span>, and <span class="math inline">\(h(x)\)</span> is non-zero only for <span class="math inline">\(w(x) \le 1\)</span>, and when <span class="math inline">\(w(x) \le 1\)</span> we must have <span class="math inline">\(w(y)-1 \le w(y-x) \le w(y)+1\)</span>. Since <span class="math inline">\(f_k(y-x)\)</span> is non-zero only when <span class="math inline">\(w(y)=k\)</span>, we conclude that <span class="math inline">\(h*f_k(y)\)</span> is non-zero only if <span class="math inline">\(w(y) \in \left\{ k-1,k,k+1 \right\}\)</span>. Trying each of these three cases gives the respective coefficients of <span class="math inline">\(f_{k-1}, f_{k}\)</span> and <span class="math inline">\(f_{k+1}\)</span> on the right.</p>
+</div>
+<div class="remark">
+<p>In <span class="citation" data-cites="JVL">[<a href="#ref-JVL" role="doc-biblioref">1</a>]</span> and <span class="citation" data-cites="MS">[<a href="#ref-MS" role="doc-biblioref">2</a>]</span>, this result is obtained by “differentiating” the following formal power series with respect to <span class="math inline">\(z\)</span>. <span class="math display">\[\begin{equation}
+    \sum_{ k = 0 }^{ \infty} K_k(x;n,q) z^k = (1+(q-1)z)^{n-x} (1-z)^x .
+\end{equation}\]</span></p>
+<p>This has the benefit that the condition <span class="math inline">\(k \in \{ 1,2,\dots,n-1\}\)</span> can be relaxed.</p>
+</div>
+<h3 id="recursion-on-argument">Recursion on argument</h3>
+<p>Another recursion formula is the one below</p>
+<div class="lemma">
+<p>For <span class="math inline">\(k \in \left\{ 1,2,\dots,n-1 \right\}\)</span> and <span class="math inline">\(i \in \left\{ 0,\dots , n \right\}\)</span>, we obtain <span class="math display">\[\begin{equation}
+    (n-k) (q-1)K_i(k+1)  = \left( k + (q-1)(n-k) -qi \right) K_i(k)  - k  K_i(k-1) . 
+\end{equation}\]</span> </p>
+</div>
+<div class="proof">
+<p>We now simply substitute our symmetry relations from above into the previous formula and obtain the following (after cancelling out <span class="math inline">\(\frac{(q-1)^{k}}{(q-1)^{i}{ n \choose i} }\)</span>).</p>
+<p><span class="math display">\[\begin{align}
+    (k+1){ n \choose  k+1} (q-1)K_i(k+1) &amp; = \left( k + (q-1)(n-k) -qi \right){n \choose k} K_i(k)\\ &amp;\ \ \  -\ (q-1)(n-k+1) { n \choose  k-1 } (q-1)^{-1}K_i(k-1) . 
+  \end{align}\]</span></p>
+<p>Using that <span class="math inline">\(\binom{n}{k} = \frac{n+1-k}{k} \binom{n}{k-1}\)</span> and <span class="math inline">\({ n \choose k+1} = \frac{ n - k }{ k + 1} { n \choose k }\)</span>, we get that <span class="math display">\[\begin{align}
+    (n-k) (q-1)K_i(k+1) &amp; = \left( k + (q-1)(n-k) -qi \right) K_i(k)  - k  K_i(k-1) . 
+  \end{align}\]</span></p>
+</div>
+<h2 id="christoffel-darboux-formula">Christoffel-Darboux formula</h2>
+<p>Another required result is the so-called Christoffel-Darboux formula. In both <span class="citation" data-cites="JVL">[<a href="#ref-JVL" role="doc-biblioref">1</a>]</span> and <span class="citation" data-cites="MS">[<a href="#ref-MS" role="doc-biblioref">2</a>]</span>, the Christoffel-Darboux formula is stated for <span class="math inline">\(q=2\)</span> with no clarification. This is the general version.</p>
+<div class="lemma">
+<p>For <span class="math inline">\(k \in \left\{ 0, 1,\dots,n-1 \right\}\)</span>, the following identity is true in <span class="math inline">\(\mathbb{C}[x,y]\)</span>. <span class="math display">\[\begin{align}
+    K_{k+1}(x)K_{k}(y) -  K_{k+1}(y)K_k(x) =  (y-x) \left[ \frac{q}{k+1} {n \choose  k } \sum_{i=0}^{k} (q-1)^{k-i}{ n \choose  i }^{\hspace{-0.15cm} -1} \hspace{-0.15cm} K_i(x) K_i(y)  \right].
+  \end{align}\]</span></p>
+<p></p>
+</div>
+<div class="proof">
+<p>For <span class="math inline">\(k=0\)</span>, it is trivial. For <span class="math inline">\(k\ge 1\)</span>, it follows from Lemma  that <span class="math display">\[\begin{align}
+     &amp; {n\choose k}^{\hspace{-0.15cm}-1}\hspace{-0.15cm} (k+1)[K_{k+1}(x)K_k(y) - K_{k+1}(y)  K_{k}(x) ]    =\\
+    &amp;  q {n\choose  k } ^{\hspace{-0.15cm}-1} \hspace{-0.15cm} (y-x)K_k(x)K_k(y)  + (q-1) {n\choose  k-1}^{\hspace{-0.15cm}-1}\hspace{-0.15cm}k\left[ K_k(x)K_{k-1}(y) - K_{k}(y)K_{k-1}(x) \right]  . \\
+  \end{align}\]</span> Notice the last term in just the starting term with a lower index times <span class="math inline">\(q-1\)</span>. The rest follows from induction on <span class="math inline">\(k\)</span>.</p>
+</div>
+<div class="remark">
+<p>Christoffel-Darboux equations are general results that hold for orthogonal polynomials. Indeed, Kravchuk polynomials <span class="math inline">\(\left\{ K_k(x) \right\}_{0 \le k \le n}\)</span> are orthogonal polynomials on the domain <span class="math inline">\([0,n]\)</span> as they satisfy <span class="math display">\[\sum_{i=0}^{n} {n \choose  i} (q-1)^{i} K_r(i) K_s(i) = q^n (q-1)^{r} { n \choose  r } \delta_{r s }.\]</span> One can easily prove this orthogonality identity using Remark  and the `Parseval identity’ of Remark . See <span class="citation" data-cites="S">[<a href="#ref-S" role="doc-biblioref">3</a>]</span> for the general theory.</p>
+</div>
+<h2 id="multiplication-of-kravchuk-polynomials">Multiplication of Kravchuk polynomials</h2>
+<p>Another lemma could tell us how the Kravchuk polynomials multiply.</p>
+<div class="lemma">
+<p>For <span class="math inline">\(k, k&#39; \in \left\{ 0 , 1, \dots , n \right\}\)</span>, the following identity holds for Kravchuk polynomials. <span class="math display">\[\begin{equation}
+    K_{k}(x) K_{k&#39;}(x) =  \sum_{ j = 0 }^{ n } c_{j, k , k&#39;} K_j(x),
+  \end{equation}\]</span>  where <span class="math inline">\(c_{j , k , k&#39;} = \# \{ (x , y) \in Q^n \times Q^n \ | \ w(x) = k , w(y) = k&#39;, w(x+y) = j\}\)</span>. In particular, <span class="math inline">\(c_{j, k , k&#39;} \ge 0\)</span>.</p>
+</div>
+<div class="proof">
+<p>It is sufficient to check that the convolution of indicator functions gives <span class="math display">\[\begin{align}
+    f_k * f_{k&#39;} = \sum_{j=0}^{n} c_{j , k ,k&#39;} f_j.
+  \end{align}\]</span> Take the Fourier transform to get the identity for integers and then argue by the degree of polynomials to finish the proof.</p>
+</div>
+<h1 id="interlacing-of-roots">Interlacing of roots</h1>
+<p>And now finally, we have the interlacing property of the roots of the Kravchuk polynomials.</p>
+<div class="lemma">
+<p>For the Kravchuk polynomials <span class="math inline">\(\{ K_k(x)\}_{0 \le k \le n }\)</span>,</p>
+<ul>
+<li>For each <span class="math inline">\(k\ge 1\)</span>, all the roots of <span class="math inline">\(K_k(x)\)</span> are real, simple and lie in the interior of the interval <span class="math inline">\([0,n]\)</span>.</li>
+<li>For <span class="math inline">\(n \ge k\ge 1\)</span>, if <span class="math inline">\(\{ x^{(k)}_i\}_{1 \le i \le k}\)</span> are the roots of <span class="math inline">\(K_k\)</span>, then the roots of consecutive polynomial are interlaced, i.e. they satisfy <span class="math display">\[\begin{equation}
+    0 &lt; x^{(k+1)}_1 &lt; x^{(k)}_1 &lt; x^{(k+1)}_2 &lt; \dots &lt; x^{(k+1)}_k &lt; x^{(k)}_k &lt; x^{(k+1)}_{k+1} &lt; n .
+ \end{equation}\]</span> </li>
+</ul>
+</div>
+<div class="proof">
+<p>We will do this by induction. First, note that <span class="math inline">\(K_0(x)=1\)</span> and <span class="math inline">\(K_1(x) = n(q-1) - qx\)</span> and therefore has one simple zero in <span class="math inline">\([0,n]\)</span> for <span class="math inline">\(K_1(x)\)</span>. Now assume the lemma for all Kravchuk polynomials with indices <span class="math inline">\(\le k\)</span> and look at at the recurrence formula to conclude the proof for <span class="math inline">\(K_{k+1}(x)\)</span> by the following argument:</p>
+<p>We know by induction that the following holds. <span class="math display">\[\begin{equation}
+    0 &lt; x^{(k)}_1 &lt; x^{(k-1)}_1 &lt; x^{(k)}_2 &lt; \dots &lt; x^{(k)}_k &lt; x^{(k-1)}_k &lt; x^{(k)}_{k+1} &lt; n .
+      \end{equation}\]</span></p>
+<p>Note that <span class="math inline">\(K_i(0) = {n\choose i} (q-1)^{i}\)</span> and <span class="math inline">\(K_i(n) = (-1)^{i} {n \choose i} (q-1)^{i}\)</span>. Substituting <span class="math inline">\(\{ x^{(k)}_i\}_{1\le i \le n} \cup \{ 0,n\}\)</span> in the recurrence formula makes us conclude that <span class="math inline">\(K_{k+1}(0) &gt; 0\)</span>, <span class="math inline">\(K_{k+1}(x^{(k)}_1) &lt; 0\)</span>, <span class="math inline">\(K_{k+1}(x^{(k)}_2) &gt; 0\)</span>, and so on. This gives us at least one zero in each subinterval and each zero will have to be simple by the pigeonhole argument.</p>
+</div>
+<div class="remark">
+<p>The two properties are also the result of the general theory of orthogonal polynomials. <span class="citation" data-cites="S">[<a href="#ref-S" role="doc-biblioref">3</a>]</span> gives several different proofs of these properties for the general case.</p>
+</div>
+<h2 id="asymptoptic-growth-of-first-root">Asymptoptic growth of first root</h2>
+<p>We now have all the ingredients to produce our most important asymptotic result. By <span class="math inline">\(\lfloor x \rfloor\)</span> we mean the greatest integer smaller or equal to <span class="math inline">\(x \in \mathbb{R}\)</span>.</p>
+<div class="lemma">
+<p>Let <span class="math inline">\(\lambda \in (0,1)\)</span>, and <span class="math inline">\(\{ x^{(\lfloor \lambda n \rfloor,n)}_1\}_{n \ge 1}\)</span> be the sequence of first roots of the Kravchuk polynomials <span class="math inline">\(K_{\lfloor \lambda n\rfloor}(x;n,q)\)</span>. For all large enough <span class="math inline">\(n\)</span> and <span class="math inline">\(\lambda \in (0,1)\)</span>, we eventually have that <span class="math display">\[\begin{equation}
+    \frac{ x_1^{(\lfloor \lambda n\rfloor)}}{n} \le 1-  \frac{1}{q} - \left(  1 - \frac{2}{q} \right) \lambda - \frac{2}{q}\sqrt{(q-1)\lambda(1-\lambda)}.
+  \end{equation}\]</span> </p>
+</div>
+<div class="proof">
+<p>We will prove this by contradiction. Let <span class="math inline">\(r\)</span> be equal to the term on right side of the inequality. Suppose the claim is false, then we have some <span class="math inline">\(\varepsilon &gt; 0\)</span> such that $x_1^{( n)}/n r + 2$ for infinitely many <span class="math inline">\(n\)</span>. For such an <span class="math inline">\(n\)</span>, let <span class="math inline">\(t = \lfloor \lambda n\rfloor\)</span>, and we keep in mind that <span class="math inline">\(n\)</span> can be larger than any arbitrary threshold.</p>
+<p>Now take <span class="math inline">\(i = \lfloor n (r+\varepsilon) \rfloor\)</span>.</p>
+<p>Using the big-<span class="math inline">\(O\)</span> notation and observing that <span class="math inline">\(| i - x_j^{(t)}| \ge | i - x_1^{(t)}| \ge \varepsilon n\)</span>, we can write that <span class="math display">\[\begin{align}
+  \log\left(  \frac{K_t(i+1)}{K_t(i)} \right) &amp;= \sum_{j=1}^{t} \log\left(1 + \frac{1}{i-x^{(t)}_j}\right)\\
+  &amp;=   \sum_{j = 1}^{t} \left[ \frac{1}{i - x^{(t)}_j} - \frac{1}{2}\frac{1}{(i - x^{(t)}_j)^{2}} + \frac{1}{3} \frac{1}{(i-x_j^{(t)})^{3}} \dots \right] \\
+  &amp;=   \sum_{j = 1}^{t}\left[ \frac{1}{i - x^{(t)}_j} - \frac{1}{2}\frac{1}{(i - x^{(t)}_1)^{2}} \dots \right] \\
+  &amp;=   \left[ \sum_{j = 1}^{t} \frac{1}{i - x^{(t)}_j} \right] +   O\left( \frac{t}{ \varepsilon ^{ 2} n^{2}} \right) = \sum_{j = 1}^{ t} \frac{1}{i - x_j^{(t)}} + O\left( \frac{1}{n} \right).
+\end{align}\]</span></p>
+<p>Similarly, we can write that</p>
+<p><span class="math display">\[\begin{align}
+    \log\left( \frac{K_t(i)}{K_t(i-1)}   \right) =  \sum_{j = 1}^{t} \frac{1}{i - x_j^{(t)}} + O\left( \frac{1}{n} \right).
+  \end{align}\]</span> Now let <span class="math inline">\(\rho = \log\left( \frac{K_t(i+1)}{K_t(i)} \right)\)</span>, therefore we get that <span class="math display">\[\begin{align}
+    \log\left( \frac{K_t(i)}{K_t(i-1)}   \right) = \rho \left(  1 + O\left( \frac{1}{n} \right) \right).
+  \end{align}\]</span> Also note that as <span class="math inline">\(n \rightarrow \infty\)</span>, <span class="math inline">\(\log(\rho) \le \frac{t}{\varepsilon n} + O\left( \frac{1}{n} \right)\)</span> is bounded. Now recall from Lemma  that <span class="math display">\[\begin{align}
+     &amp; (n-i) (q-1)K_t(i+1)  = \left( i + (q-1)(n-i) -qt \right) K_t(i)  - i  K_t(i-1) \\
+     \Rightarrow &amp; (n-i)(q-1) \frac{K_t(i+1)}{K_t(i)} =  ( i + (q-1)(n-i) - qt ) - i \frac{K_t(i-1)}{ K_t(i)} \\
+     \Rightarrow &amp; (n-i)(q-1) \frac{K_t(i+1)}{K_t(i)} \frac{K_t(i)}{K_t(i-1)}  =  ( i + (q-1)(n-i) - qt ) \frac{K_t(i)}{K_t(i-1)} - i \\
+     \Rightarrow &amp; (n-i)(q-1) \left( \rho^{2} +  O\left( \frac{1}{n} \right) \rho \right)=  ( i + (q-1)(n-i) - qt ) \rho - i \\
+     \Rightarrow &amp; \left(1-\frac{i}{n}\right)(q-1) \rho^{2} +  O\left(\frac{1}{n}  \right)=  \left( \frac{i}{n} + (q-1)\left(1-\frac{i}{n}\right) - q\frac{t}{n} \right) \rho - \frac{i}{n} .
+    \end{align}\]</span> The last implication is because <span class="math inline">\(\rho\)</span> is bounded. Adjusting slightly the last equation yields <span class="math display">\[\begin{align}
+      \left(\rho - \frac{\left(  \frac{i}{n} +(q-1) \left( 1- \frac{1}{n} \right) - q \frac{t}{n} \right)}{ 2 (q-1) \left(  1 - \frac{i}{n} \right)}  \right)^{2} = \frac{1}{4} \left( \frac{\left( \frac{i}{n} +  (q-1)\left( 1 - \frac{i}{n} \right) - q \frac{t}{n} \right)}{ (q-1)\left( 1- \frac{i}{n} \right) } \right)^{2} - \frac{i}{n(q-1) \left(  1 - \frac{i}{n} \right)} + O \left( \frac{1}{n} \right).
+    \end{align}\]</span> Since <span class="math inline">\(\rho\)</span> is real, we will have to conclude that the right-hand side is positive. After putting <span class="math inline">\(\frac{i}{n} = r + \varepsilon + O\left( \frac{1}{n} \right)\)</span> and <span class="math inline">\(\frac{t}{n} = \lambda + O\left( \frac{1}{n} \right)\)</span>, we get that <span class="math display">\[\begin{align}
+      &amp; \frac{1}{4} \left( \frac{ r+ \varepsilon +  (q-1)\left( 1 - r - \varepsilon \right) - q \lambda }{ (q-1)\left( 1-  r - \varepsilon \right) } \right)^{2} -  \frac{r+ \varepsilon}{ (q-1)(1-r- \varepsilon)}  + O \left( \frac{1}{n} \right) \ge 0 .
+    \end{align}\]</span> Put <span class="math inline">\(r&#39; = r+ \varepsilon\)</span>, and then we get that <span class="math display">\[\begin{align}
+      &amp; (r&#39; + (q-1)(1-r&#39;) - q\lambda)^{2} - 4(q-1)(1-r&#39;)r&#39; + O\left(  \frac{1}{n} \right) \ge 0\\
+      \Rightarrow &amp;  (r&#39; (q-2)  + q \lambda - (q-1))^{2}  - 4(q-1) r&#39; (1-r&#39;) + O\left(  \frac{1}{n} \right) \ge 0\\
+      \Rightarrow &amp; \ r&#39;^{2} \left[  (q-2  )^{2} + 4(q-1) \right]  - 2r&#39;\left[  (q-2)(q-1) -q(q-1) \lambda + 2 (q-1) \right]  + [(q-1)-q\lambda]^{2} + O\left( \frac{1}{n} \right) \ge 0\\
+      \Rightarrow &amp; \  r&#39;^{2} q^{2}  - 2r&#39;\left[  q(q-1) - q(q-2)\lambda  \right]  + [(q-1)-q\lambda]^{2} + O\left( \frac{1}{n} \right) \ge 0.
+    \end{align}\]</span></p>
+<p>Now notice that the above is a polynomial in <span class="math inline">\(r&#39;\)</span>, whose roots are</p>
+<span class="math display">\[\begin{equation} \label{eq:notice_this_poly}
+    \left( 1 - \frac{1}{q} \right) - \left(  1 - \frac{2}{q}  \right) \lambda  \pm \frac{2}{q} \sqrt{(q-1)\lambda(1-\lambda)} + O\left( \frac{1}{n} \right).
+  \end{equation}\]</span> The smaller of the two roots is <span class="math inline">\(r + O\left( \frac{1}{n} \right)\)</span> and <span class="math inline">\(\varepsilon\)</span> can be chosen such that <span class="math inline">\(r+ \varepsilon\)</span> lies in the interval spanned by the two roots where the polynomial is negative. This contradicts the existence of <span class="math inline">\(\varepsilon\)</span> and therefore our proof is complete.
+</div>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-JVL" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">J. H. van Lint, <em>Introduction to coding theory</em> (Springer Berlin Heidelberg, 1998).</div>
+</div>
+<div id="ref-MS" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">F. J. MacWilliams &amp; N. J. A. Sloane, <em>The theory of error-correcting codes</em> (North-Holland Publishing Company, 1977).</div>
+</div>
+<div id="ref-S" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">G. Szegö, <em>Orthogonal polynomials</em> (American Mathematical Society, 1967).</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on February 2, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

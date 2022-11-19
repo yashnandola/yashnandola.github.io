@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-10-02" />
+  <title>Codes</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Codes</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#in-hamming-space">In Hamming space</a></li>
+<li><a href="#upper-bounds">Upper bounds</a></li>
+<li><a href="#quantum-error-correction">Quantum error-correction</a></li>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<p>By codes, we generally mean linear subspaces <span class="math inline">\(C \subseteq \mathbb{F}_q^n\)</span> for some finite field <span class="math inline">\(\mathbb{F}_q\)</span> and some dimension <span class="math inline">\(n\)</span>. Sometimes, codes may not be linear, sometimes they may be inside more exotic finite sets like graphs or matrix rings over finite fields.</p>
+<h1 id="in-hamming-space">In Hamming space</h1>
+<p>Let <span class="math inline">\(Q\)</span> be the finite set of <span class="math inline">\(q\)</span> elements called the alphabet. We call a subset <span class="math inline">\(C \subseteq {Q}^n\)</span> a code on the alphabet set <span class="math inline">\(Q\)</span>. Individual elements of <span class="math inline">\(Q^n\)</span> are called codewords.</p>
+<p>The space <span class="math inline">\(Q^n\)</span> with the Hamming metric is called a <a href="hamming_space.html">Hamming space</a>.</p>
+<p>We are interested in codes in <span class="math inline">\(Q^n\)</span> that contains points which are far apart with respect to this metric. Hence, a useful parameter for a given code <span class="math inline">\(C \subseteq Q^n\)</span> for us shall be</p>
+<p><span class="math display">\[\begin{equation}
+  d(C) := \text{inf} \{ d(x,y) \ | \ x,y \in C, x\neq y\}. 
+  \label{eq:defi_of_mind}
+\end{equation}\]</span></p>
+<p>We often normalize it in the following manner. We can call the following the <strong>normalized minimum distance</strong> <span class="citation" data-cites="JF">[<a href="#ref-JF" role="doc-biblioref">1</a>]</span> or the <strong>relative minimum distance</strong>.</p>
+<p><span class="math display">\[\begin{equation}
+  \delta(C) := \frac{1}{n} d(C).
+  \label{eq:defi_of_min}
+\end{equation}\]</span></p>
+<p>We also define the <strong>information rate</strong> or simply called the <strong>rate</strong> which roughly measures the size of the code <span class="math inline">\(C\)</span>, as follows</p>
+<p><span class="math display">\[\begin{equation}
+  R(C) : = \log_{q^n}|C| = \frac{\log |C|}{ \log q^n} = \frac{\log_q |C| }{n} .
+\end{equation}\]</span></p>
+<p>The goal of coding theory is to try to make <span class="math inline">\(\delta(C)\)</span> as large as it can be once we only know the size <span class="math inline">\(R(C)\)</span>, or otherwise how large could <span class="math inline">\(R(C)\)</span> be while knowing <span class="math inline">\(\delta(C)\)</span>. We let <span class="math inline">\(n\)</span> to be very big to get asymptotic estimations.</p>
+<h1 id="upper-bounds">Upper bounds</h1>
+<p>See the page about <a href="lp_hamming.html">LP bounds for hamming distance</a></p>
+<h1 id="quantum-error-correction">Quantum error-correction</h1>
+<p>See <a href="qecc.html">here</a></p>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-JF" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">Joel Friedman, Jean-Pierre Tillich, <span class="nocase">Generalized Alon-Boppana theorems and error-correcting codes</span>. <em><span>Journal of Discrete Mathematics</span></em>, <strong>19</strong> (2002) 700–718.</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on October 2, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

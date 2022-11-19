@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-01-22" />
+  <title>Ellipsoid</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Ellipsoid</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#volume-formula">Volume formula</a></li>
+<li><a href="#surface-area">Surface area</a></li>
+</ul>
+</nav>
+<h1 id="volume-formula">Volume formula</h1>
+<p>Suppose <span class="math inline">\(q:\mathbb{R}^{d} \rightarrow \mathbb{R}\)</span> is a positive definite quadratic form. For any <span class="math inline">\(R&gt;0\)</span>, a set <span class="math display">\[\begin{align}
+  B_{q}(R)=\{ x \in \mathbb{R}^{d} \ | \ q(x) \le R^{2}\} \subseteq \mathbb{R}^{d}
+\end{align}\]</span> is called a closed ellipsoid of radius <span class="math inline">\(R\)</span> with respect to <span class="math inline">\(q\)</span>. The volume of such an ellipsoid is <span class="math display">\[\begin{align}
+\mathop{\mathrm{vol}}(B_{q}(R)) = \frac{ \pi^{d/2} R^{d}}{\Gamma(\frac{d}{2}+1) \sqrt{\det[ q(e_{i},e_{j})])}}
+\end{align}\]</span></p>
+<p>In terms of factorials, <span class="math display">\[\begin{align}
+\mathop{\mathrm{vol}}(B_{q}(R)) = 
+\begin{cases}
+\frac{ \pi^{d/2} }{ (d/2)! \sqrt{\det[ q(e_{i},e_{j})])}} R^{d}&amp; d \text{ even} \\
+\frac{  2 (4 \pi)^{\frac{d-1}{2}}\left( \frac{d-1}{2}  \right)! }{{d}! \sqrt{\det[ q(e_{i},e_{j})])}}  R^{d}&amp; d \text{ odd}\\
+\end{cases}
+\end{align}\]</span></p>
+<h1 id="surface-area">Surface area</h1>
+<p>To get the surface area (or rather surface hypervolume), one can simply differentiate the above formula with respect to <span class="math inline">\(R\)</span>.</p>
+<p><span class="math display">\[\begin{align}
+  \mathop{\mathrm{surf}}(B_{q}(R)) =  d \cdot {\mathop{\mathrm{vol}}(B_{q}(1)) } \cdot {R}^{d-1}.
+\end{align}\]</span></p>
+<hr />
+	<small>	<p class="date">This page was updated on January 22, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

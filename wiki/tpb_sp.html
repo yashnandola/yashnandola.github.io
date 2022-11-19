@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-02-09" />
+  <title>Three point bound for sphere packing</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Three point bound for sphere packing</h1>
+</header>
+<p><strong>Caution:</strong> Unpublished work of Cohn, Salmon, de Laat</p>
+<p>Let <span class="math inline">\(\Delta_{3,n}\)</span> be the infimum of <span class="math inline">\(\mathop{\mathrm{vol}}(B_{1/2})(f_2(0)+f_3(0,0))\)</span> over pairs of functions <span class="math inline">\(f_{2}:\mathbb{R}^{n} \rightarrow \mathbb{R}\)</span> and <span class="math inline">\(f_{3}: \mathbb{R}^{n} \times \mathbb{R}^{n} \rightarrow \mathbb{R}\)</span> such that</p>
+<ul>
+<li><span class="math inline">\(f_2\)</span> is radial</li>
+<li><span class="math inline">\(\hat{f}_{2} \ge 0\)</span> and <span class="math inline">\(\hat{f}_{2}(0)=1\)</span>,</li>
+<li><span class="math inline">\(f_{3}(x,y)=f_{3}(gx,gy)\)</span>, for <span class="math inline">\(g \in O(n)\)</span>,</li>
+<li><span class="math inline">\(f_{3}\)</span> is positive definite as a kernel, i.e. <span class="math inline">\(\sum_{x,y}^{}w_{x} w_{y}f_2(x,y) \ge 0\)</span> for any finitely supported function <span class="math inline">\(w_{\bullet}: \mathbb{R}^n \to \mathbb{R}\)</span>,</li>
+<li><span class="math inline">\(f_{2}(x)+f_{3}(x,0)+f_{3}(0,x)+f_{3}(x,x) \le 0\)</span> for <span class="math inline">\(\|x\| \ge 1\)</span>,</li>
+<li><span class="math inline">\(f_{3}(x,y) + f_{3}(x,x-y)+f_{3}(y,y-x) \le 0\)</span> for <span class="math inline">\(\|x\|,\|y\|,\|x-y\| \ge 1\)</span>.</li>
+</ul>
+<p>Then, <span class="math inline">\(\Delta_{3,n}\)</span> is a sphere packing bound in <span class="math inline">\(n\)</span> dimensions.</p>
+<div class="proof">
+<p>The proof is very similar to the proof of <a href="lp_bound_sp.html">linear programming bound for sphere packing</a>.</p>
+<p>First note that <span class="math inline">\(f_3(x,y)\)</span> can be replaced by <span class="math inline">\([f_3(x,y)+f_3(y,x)]/2\)</span>. So we may assume that <span class="math inline">\(f_3\)</span> is symmetric.</p>
+<p>Consider the kernel <span class="math inline">\(K:\mathbb{R}^{n} \times \mathbb{R}^{n} \rightarrow \mathbb{R}\)</span> given by <span class="math display">\[\begin{align}
+  K(x,y) = f_{3}(x,y) + \mathbb{I}_{x=y} f_2(x)
+\end{align}\]</span></p>
+<p>Note that <span class="math inline">\(K(x,y)\)</span> is positive definition. For any <span class="math inline">\(w_{\bullet} : \mathbb{R}^{n} \rightarrow \mathbb{R}\)</span> with finite support, we have <span class="math display">\[\begin{align}
+  &amp; \sum_{x,y \in \mathbb{R}^{n}} K(x,y)w_{x}w_{y}  \\
+  = &amp;  \sum_{x \in \mathbb{R}^{n}}^{} f_2(0) w_x^{2}+\sum_{x,y \in \mathbb{R}^{n}} f_3(x,y)w_{x}w_{y}   \ge 0.
+\end{align}\]</span> Here, we know that <span class="math inline">\(f_{2}(0) \ge 0\)</span> since <span class="math inline">\(\hat{f_2} \ge 0\)</span>.</p>
+<p>Let <span class="math inline">\(\Lambda \subseteq \mathbb{R}^{n}\)</span> be a lattice and let <span class="math inline">\(F \subseteq \mathbb{R}^{n}\)</span> be a finite set such that <span class="math inline">\(F \rightarrow \mathbb{R}^{n}/ \Lambda\)</span> is injective. Therefore, we get that the set <span class="math inline">\(F + \Lambda\)</span> is a periodic packing. We also assume that <span class="math inline">\(\Lambda + F\)</span> is a unit-distance packing, that is no two pair of points are at a distance strictly less than <span class="math inline">\(1\)</span>.</p>
+<p>We now try to sum up the set <span class="math inline">\(K(v_2-v_0,v_1-v_0)\)</span> as <span class="math inline">\(v_0,v_1,v_2\)</span> are vertices of all possible triangles that we can form with points in <span class="math inline">\(\Lambda + F\)</span> up to translational symmetry. We consider the sum <span class="math display">\[\begin{align}
+  S_{\Delta} = \sum_{\lambda_1, \lambda_2 \in \Lambda} \sum_{s_0,s_1,s_2 \in F} K(\lambda_1 + s_1-  s_0, \lambda_2+s_2 - s_0).
+\end{align}\]</span> Now let us think of <span class="math inline">\(v_0,v_1,v_2 \in \Lambda + F\)</span> as vertices of a triangle. We can get three types of triangular shapes.</p>
+<ol type="1">
+<li>Triangles where <span class="math inline">\(v_0,v_1,v_2\)</span> are distinct,</li>
+<li>Where exactly one of <span class="math inline">\(v_0=v_1\)</span>, <span class="math inline">\(v_1=v_2\)</span> or <span class="math inline">\(v_2=v_0\)</span> holds,</li>
+<li>Where <span class="math inline">\(v_0=v_1=v_2\)</span>.</li>
+</ol>
+<p>For the first type of triangle, we will give get six terms in <span class="math inline">\(S_{\Delta}\)</span>. By symmetry, we can reduce them to three. <span class="math display">\[\begin{align}
+  &amp; K(v_2-v_0,v_1-v_0) + K(v_1-v_2,v_0-v_2) + K(v_0-v_1,v_2-v_1 ) \\
+  + &amp; K(v_1-v_0,v_2-v_0) + K(v_0-v_2,v_1-v_2) + K(v_2-v_1,v_0-v_1 ) \\
+  &amp; = 2[ K(v_2-v_0,v_1-v_0) + K(v_1-v_2,v_0-v_2) + K(v_0-v_1,v_2-v_1 ) ]  \\ 
+\end{align}\]</span></p>
+<p>In the first type of triangle, we get <span class="math display">\[\begin{align}
+  2[ K(v_2-v_0,v_1-v_0) + K(v_1-v_2,v_0-v_2) + K(v_0-v_1,v_2-v_1 ) ]  \\ 
+  = 2 [f_3(v_2-v_0,v_1-v_0) + f_3(v_1-v_2,v_0-v_2) + f_3(v_0-v_1,v_2-v_1 )] \le 0.
+\end{align}\]</span> The inequality is because if we set <span class="math inline">\(x=v_2-v_0,y=v_1-v_0\)</span> then the term is of the form <span class="math display">\[\begin{align}
+  f_{3}(x,y) + f_{3}(-x,y-x) + f_{3}(-y,x-y), \|x\|,\|y\|, \|x-y\| \ge 1.
+\end{align}\]</span></p>
+<p>Similarly, in the second case, suppose that <span class="math inline">\(v_1=v_2\)</span>. Then, <span class="math display">\[\begin{align}
+   K(v_2-v_0,v_1-v_0) + K(v_1-v_2,v_0-v_2) + K(v_0-v_1,v_2-v_1 )   \\ 
+  = f_2(v_1-v_0)+f_3(v_1-v_0,v_1-v_0) + f_3(0,v_0-v_1) + f_3(v_0-v_1,0) \le 0.
+\end{align}\]</span> The same happens in the cases when <span class="math inline">\(v_1=v_0\)</span> or <span class="math inline">\(v_0=v_2\)</span> holds.</p>
+<p>For the third case, we get <span class="math inline">\(v_1=v_2=v_3\)</span>. By translational symmetry, we can have that all the points lie exactly in <span class="math inline">\(F\)</span>. So there are exactly <span class="math inline">\(\#F\)</span> times such a triangle will form in the sum and each will contribute to the sum <span class="math display">\[\begin{align}
+ \left( f_3(0,0) + f_2(0) \right).
+\end{align}\]</span></p>
+<p>Hence, we get that <span class="math inline">\(S_{\Delta} \le \#F \cdot K(0,0)\)</span>.</p>
+<p>On the other hand, it is clear that <span class="math display">\[\begin{align}
+  S_{\Delta} = \sum_{\lambda_1, \lambda_2 \in \Lambda} \sum_{s_0,s_1,s_2 \in F} f_3(\lambda_1 + s_1-  s_0, \lambda_2+s_2 - s_0) + \sum_{\lambda \in \Lambda} \sum_{s_0,s_1 \in F}^{} f_{2}(\lambda + s_1 - s_0) \\ 
+\end{align}\]</span> The first term is <span class="math inline">\(\ge 0\)</span> by positive definiteness of <span class="math inline">\(f_3\)</span> and the other term is <span class="math inline">\(\ge (\# F)^{2}/\mathop{\mathrm{vol}}(\mathbb{R}^{n} / \Lambda)\)</span> just like in the proof of the <a href="lp_bound_sp.html">linear programming bound for sphere packing</a>.</p>
+<p>Putting the lower bound and upper bound on <span class="math inline">\(S_{\Delta}\)</span> gives the desired proof.</p>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on February 9, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

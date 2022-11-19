@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2021-12-08" />
+  <title>Dirichlet’s Unit Theorem</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Dirichlet’s Unit Theorem</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#arithmetic-groups-perspective">Arithmetic groups perspective</a></li>
+</ul>
+</nav>
+<p>Recall <span class="math inline">\(\mathcal{O}_{K} \subseteq K_{\mathbb{R}}\)</span> with respect to the <a href="minkowski_embedding.html">Minkowski’s embedding</a>.</p>
+<p>Let <span class="math inline">\(K_{\mathbb{R}}^{*} \subseteq K_{\mathbb{R}}\)</span> be the set <span class="math inline">\(\{ x \in K_{\mathbb{R}} \ | \ \mathop{\mathrm{N}}(x) \neq 0 \}\)</span>. From this, we can define the following logarithm mapping <span class="math display">\[\begin{align}
+  \mathop{\mathrm{\mathbf{log}}}: K_{\mathbb{R}}^{*} \rightarrow &amp; \ \ \ \mathbb{R}^{r_1 + r_2}\\
+  x \mapsto &amp; \ \ \  
+   \left( \sigma \mapsto \begin{cases}
+  \log | \sigma(x)| &amp; \text{ real } \\
+    2\log | \sigma(x)| &amp; \sigma \text{ complex } \\
+  \end{cases} \right)
+\end{align}\]</span></p>
+<p>This is a homomorphism of abelian groups. We know that <span class="math inline">\(\mathcal{O}_{K}^{*} \subset K_{\mathbb{R}}^{*}\)</span> maps under this to a discrete subgroup of rank <span class="math inline">\(r_1+r_2-1\)</span> and has a kernel of exactly the torsional units. The image of the <span class="math inline">\(\mathop{\mathrm{\mathbf{log}}}\)</span> embedding is the vector subspace of <span class="math inline">\(\mathbb{R}^{r_1+r_2}\)</span> perpendicular to the vector <span class="math inline">\((1,1,1,\cdots)\)</span></p>
+<p>Dirichlet’s unit theorem says that the group <span class="math inline">\(\mathcal{O}_{K}^{*}\)</span> has finite covolume inside the abelian group <span class="math inline">\(K_{\mathbb{R}}^{(1)} = \{ x \in K_{\mathbb{R}} \ | \ |\mathop{\mathrm{N}}(x)|=1\}\)</span>. And the kernel of <span class="math inline">\(\mathcal{O}_K^{*} \rightarrow \mathop{\mathrm{\mathbf{log}}}\left( \mathcal{O}_K^{*} \right)\)</span> is a cyclic group.</p>
+<div class="definition">
+<p>The covolume of <span class="math inline">\(\mathop{\mathrm{\mathbf{log}}}(\mathcal{O}_{K}^{*}) \subseteq (1,1,\cdots)^{\perp}\)</span> is finite. It is equal to the <a href="regulator.html">regulator</a> of the field <span class="math inline">\(K\)</span>, up to a constant. The regulator is denoted as <span class="math inline">\(R_K\)</span>.</p>
+<p>The kernel of <span class="math inline">\(\mathcal{O}_K^{*} \rightarrow \mathop{\mathrm{\mathbf{log}}}\left( \mathcal{O}_K^{*} \right)\)</span> is a cyclic group whose size is denoted as <span class="math inline">\(w_K\)</span>.</p>
+</div>
+<div class="theorem">
+<p>(<strong>DUT</strong>) <span class="math display">\[\begin{align}
+    \mathcal{O}_{K}^{*} \simeq \left( \frac{\mathbb{Z}}{ w_{K} \mathbb{Z}} \right) \times \mathbb{Z}^{r_1+r_2-1}.
+  \end{align}\]</span></p>
+</div>
+<h1 id="arithmetic-groups-perspective">Arithmetic groups perspective</h1>
+<p>DUT basically asserts that <span class="math inline">\(K_{\mathbb{R}}^{(1)}/\mathcal{O}_{K}^{*}\)</span> is compact. This is basically a Lie group modulo an arithmetic subgroup. The fact that this space is compact also follows from a special case of <a href="bhc.html">Borel-Harish-Chandra theorem</a></p>
+<hr />
+	<small>	<p class="date">This page was updated on December 8, 2021.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

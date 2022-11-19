@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-01-26" />
+  <title>Lattice Packing Constant</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Lattice Packing Constant</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#relation-to-sphere-packing">Relation to sphere packing</a></li>
+<li><a href="#bounds">Bounds</a>
+<ul>
+<li><a href="#known-values">Known values</a></li>
+<li><a href="#lower-bounds">Lower bounds</a></li>
+<li><a href="#upper-bounds">Upper bounds</a></li>
+</ul></li>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<p>If we denote <span class="math inline">\(SL(V)\)</span> to be the group of all unimodular linear transformations on <span class="math inline">\(V\)</span>, we can now define <span class="math display">\[\begin{align}
+  c_{d} = \sup\left\{ \mu\left( g B_{r}(0)\right) \ | \ r&gt; 0,~g \in SL(V) \text{ and } g B_{r}(0) \cap \Lambda_0 = \{ 0\}\right\},
+\end{align}\]</span></p>
+<h1 id="relation-to-sphere-packing">Relation to sphere packing</h1>
+<p>The most optimal <a href="lattice_packing.html">lattice packing</a> density in <span class="math inline">\(d\)</span>-dimensions is <span class="math inline">\(c_{d}/2^{d}\)</span>. Note that the most optimal sphere packing may not be a lattice packing for large <span class="math inline">\(d\)</span>. It is a common belief in the community that the optimal packings in large dimensions are probably aperiodic.</p>
+<p>Here is a quote from <span class="citation" data-cites="CE">[<a href="#ref-CE" role="doc-biblioref">1</a>]</span>:</p>
+<blockquote>
+<p>For <span class="math inline">\(d\ge 4\)</span> the problem remains unsolved. Upper and lower bounds on the density are known, but they differ by an exponential factor as <span class="math inline">\(d \to \infty\)</span>. Each dimension seems to have its own peculiarities, and it does not seem likely that a single, simple construction will give the best packing in every dimension.</p>
+</blockquote>
+<h1 id="bounds">Bounds</h1>
+<h2 id="known-values">Known values</h2>
+<p>The exact value of <span class="math inline">\(c_d\)</span> is known only for <span class="math inline">\(d \in \{1,2,3,4,5,6,7,8,24\}\)</span>.</p>
+<h2 id="lower-bounds">Lower bounds</h2>
+<p>Here are some known lower bounds. See <a href="smt.html">Siegel Mean Value theorem</a> for getting some of these bounds.</p>
+<table>
+<thead>
+<tr class="header">
+<th><strong>Bound</strong></th>
+<th><strong>Due to</strong></th>
+<th><strong>Valid in range</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(c_{d} \ge 1\)</span></td>
+<td>Minkowski (cf. <span class="citation" data-cites="h43">[<a href="#ref-h43" role="doc-biblioref">2</a>]</span>)</td>
+<td>Any <span class="math inline">\(d \ge 1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(c_{d} \ge 2(d-1)\)</span></td>
+<td>Ball <span class="citation" data-cites="ba92">[<a href="#ref-ba92" role="doc-biblioref">3</a>]</span></td>
+<td>Any <span class="math inline">\(d \ge 1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(c_{4n} \ge 8.8 n\)</span></td>
+<td>Vance <span class="citation" data-cites="va2011">[<a href="#ref-va2011" role="doc-biblioref">4</a>]</span></td>
+<td><span class="math inline">\(d = 4n, n \ge 1\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(c_{2 \varphi(n)} \ge n\)</span></td>
+<td>Venkatesh <span class="citation" data-cites="AV">[<a href="#ref-AV" role="doc-biblioref">5</a>]</span></td>
+<td><span class="math inline">\(d= 2\varphi(k)\)</span>, for some <span class="math inline">\(k \ge 1\)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\(c_{n} \ge 65963 n\)</span></td>
+<td>Venkatesh <span class="citation" data-cites="AV">[<a href="#ref-AV" role="doc-biblioref">5</a>]</span></td>
+<td><span class="math inline">\(d= n\)</span> sufficiently large</td>
+</tr>
+</tbody>
+</table>
+<div class="question">
+<p>What is a threshold for <span class="math inline">\(n\)</span> after which <span class="math inline">\(c_n \ge 65963n\)</span> holds?</p>
+</div>
+<h2 id="upper-bounds">Upper bounds</h2>
+<p>The upper bound given by <a href="lp_bound_sp.html">Cohn-Elkies</a> is a celebrated result. See <span class="citation" data-cites="CE">[<a href="#ref-CE" role="doc-biblioref">1</a>]</span></p>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-CE" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">H. Cohn &amp; N. Elkies, New upper bounds on sphere packings <span>I</span>. <em>Annals of Mathematics</em>, <strong>157</strong> (2003) 689–714. <a href="https://doi.org/10.4007/annals.2003.157.689">https://doi.org/10.4007/annals.2003.157.689</a>.</div>
+</div>
+<div id="ref-h43" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">E. Hlawka, Zur geometrie der zahlen. <em>Mathematische Zeitschrift</em>, <strong>49</strong> (1943) 285–312.</div>
+</div>
+<div id="ref-ba92" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">K. Ball, A lower bound for the optimal density of lattice packings. <em>International Mathematics Research Notices</em>, <strong>1992</strong> (1992) 217–221.</div>
+</div>
+<div id="ref-va2011" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">S. Vance, Improved sphere packing lower bounds from <span>Hurwitz</span> lattices. <em>Advances in Mathematics</em>, <strong>227</strong> (2011) 2144–2156.</div>
+</div>
+<div id="ref-AV" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">5. </div><div class="csl-right-inline">A. Venkatesh, A note on sphere packings in high dimension. <em><span>International Mathematics Research Notices</span></em>, <strong>2013</strong> (2013) 1628–1642. <a href="https://doi.org/10.1093/imrn/rns096">https://doi.org/10.1093/imrn/rns096</a>.</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on January 26, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

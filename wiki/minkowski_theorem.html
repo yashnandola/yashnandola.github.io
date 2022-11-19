@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2021-10-19" />
+  <title>Minkowski’s Theorem on Successive Minima</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+    }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Minkowski’s Theorem on Successive Minima</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#effectiveness">Effectiveness</a></li>
+<li><a href="#reduction-theory">Reduction theory</a></li>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<p>Minkowski’s theorem for successive minima is the following theorem specialized for the case when <span class="math inline">\(D=\mathbb{Q}\)</span>. The following more general <a href="div_alg.html">divison algebra</a> version is a modification of <span class="citation" data-cites="V11">[<a href="#ref-V11" role="doc-biblioref">1</a>]</span>, but is also based on the ideas given in <span class="citation" data-cites="W58">[<a href="#ref-W58" role="doc-biblioref">2</a>]</span>.</p>
+<div class="theorem">
+<p>Let <span class="math inline">\(\mathcal{O} \subseteq D\)</span> is an order inside a finite-dimensional <span class="math inline">\(\mathbb{Q}\)</span>-division algebra <span class="math inline">\(D\)</span>. Let <span class="math inline">\(D_{\mathbb{R}}^{k} = (D \otimes_{\mathbb{Q}} \mathbb{R})^{\oplus k}\)</span>. We endow <span class="math inline">\(D_{\mathbb{R}}\)</span> with a positive involution <span class="math inline">\((\ )^{*}\)</span>, as it is a <a href="rss_algebra.html">real semisimple algebra</a>. Fix a symmetric and positive definite element <span class="math inline">\(a \in D_{\mathbb{R}}\)</span> and use the real positive definite quadratic form <span class="math inline">\(x \mapsto \mathop{\mathrm{tr}}(xa x^*)\)</span> to get a norm <span class="math inline">\(| \ |\)</span> on <span class="math inline">\(D_{\mathbb{R}}\)</span>, and <span class="math inline">\(\|\ \|\)</span> on <span class="math inline">\(D_{\mathbb{R}}^{k}\)</span>. Let <span class="math inline">\(\Lambda \subseteq D_{\mathbb{R}}^{k}\)</span> be a left <span class="math inline">\(\mathcal{O}\)</span>-module such that it is also a Euclidean lattice.</p>
+<p>For <span class="math inline">\(n \le k\)</span>, define the <span class="math inline">\(n\)</span>th minima <span class="math inline">\(\lambda_n(\Lambda)\)</span> of such a lattice to be the radius of the smallest closed ball that contains <span class="math inline">\(n\)</span> vectors that are <span class="math inline">\(D\)</span>-linearly independent under left multiplication action.</p>
+<ul>
+<li>There exists a set of <span class="math inline">\(k\)</span> vectors <span class="math inline">\(\{ v_1,v_2,\cdots,v_k\} \subseteq \Lambda\)</span> that are left <span class="math inline">\(D\)</span>-linearly independent and <span class="math inline">\(\|v_i\|= \lambda_i(\Lambda)\)</span></li>
+<li>There is a another lattice <span class="math inline">\(\Lambda&#39; \subseteq D_{\mathbb{R}}^{k}\)</span> that is also an <span class="math inline">\(O\)</span>-module and has the same covolume as <span class="math inline">\(\Lambda\)</span>, such that <span class="math display">\[\begin{align}
+\lambda_1(\Lambda&#39;) \ge \left( \lambda_1(\Lambda) \lambda_2(\Lambda)\ldots \lambda_{k}(\Lambda) \right)^{1/k}
+\end{align}\]</span></li>
+</ul>
+</div>
+<div class="proof">
+<p>We select <span class="math display">\[\begin{align}
+    v_1 &amp; = &amp; &amp;&amp;  \mathop{\mathrm{argmin}}_{v \in \Lambda \setminus \{ 0\}}\  \|v\|&amp;&amp; \\
+    v_2 &amp;= &amp; &amp;&amp;\mathop{\mathrm{argmin}}_{v \in \Lambda \setminus D v_1} \|v\|&amp;&amp;\\
+    v_3 &amp;= &amp; &amp;&amp;\mathop{\mathrm{argmin}}_{v \in \Lambda \setminus (D v_1 + D v_2)} \|v\|&amp;&amp;\\
+    v_4 &amp; = &amp; &amp;&amp; \mathop{\mathrm{argmin}}_{v \in \Lambda \setminus (D v_1 + D v_2 + D v_3)} \|v\| &amp;&amp;\\
+    &amp; \vdots 
+  \end{align}\]</span> Since <span class="math inline">\(\Lambda\otimes_{\mathbb{Z}} \mathbb{Q}\)</span> has <span class="math inline">\(\mathbb{Q}\)</span>-dimensions <span class="math inline">\(k[D:\mathbb{Q}]\)</span>, so we know that <span class="math inline">\(\Lambda \setminus (D v_1 + D v_2 + \cdots D v_i)\)</span> will always be non-empty for <span class="math inline">\(i \le k\)</span>. Now suppose that for some <span class="math inline">\(i\)</span>, <span class="math inline">\(a_1,a_2,\cdots,a_i \in D\)</span> satisfy <span class="math display">\[\begin{align}
+    a_1 v_1 + a_2 v_2  + a_3 v_3 + \ldots a_i v_i= 0 , \ a_i \neq 0
+  \end{align}\]</span> Then, this will imply that <span class="math inline">\(v_i\)</span> lies in the <span class="math inline">\(D\)</span>-span of <span class="math inline">\(v_1,v_2,\cdots,v_{i-1}\)</span> which is impossible. Hence, the claim about linear independent follows.</p>
+<p>Observe that <span class="math display">\[\begin{align}
+    \|v_1\| \le \|v_2\| \le \ldots \le \|v_k\|,
+  \end{align}\]</span> and furthermore for each <span class="math inline">\(i\)</span> <span class="math display">\[\begin{align}
+    \|v_i\| \ge \lambda_i.
+  \end{align}\]</span> Now <span class="math inline">\(\|v_1\| = \lambda_{1}\)</span> is clear. Suppose it is true upto <span class="math inline">\(i\)</span> that <span class="math inline">\(\lambda_{i} = \|v_i\|\)</span>. Let <span class="math inline">\(\{ w_1,w_2,\cdots,w_{i+1}\} \subseteq \overline{B_{\lambda_{i+1}}(0)}\)</span> such that they are <span class="math inline">\(D\)</span>-linearly independent. Then, because the <span class="math inline">\(\mathbb{Q}\)</span>-dimension of the space they span is larger, at least one of these vectors does not lie in <span class="math inline">\(Dv_1 + D v_2 + \cdots + D v_k\)</span>. Let’s say <span class="math inline">\(w_{i+1}\)</span> is this vector. So <span class="math inline">\(\{ v_1,v_2,\cdots,v_i,w_{i+1}\}\)</span> is a <span class="math inline">\(D\)</span>-linearly independent set of vectors. Knowing that <span class="math inline">\(\|w_{i+1}\| \ge \lambda_1\)</span>, we try to find the smallest <span class="math inline">\(j \in \{2,\cdots, i+1\}\)</span> so that <span class="math inline">\(\|w_{i+1}\| &lt; \lambda_{j}\)</span>. Such a <span class="math inline">\(j\)</span> is not possible by the definition of <span class="math inline">\(\lambda_j\)</span> and hence <span class="math inline">\(\|w_{i+1}\| \ge \lambda_{j}\)</span>. In particular, <span class="math inline">\(\|w_{i+1}\|= \lambda_{i+1}\)</span>. So <span class="math inline">\(\|v_i\|\ge \|w_i\|\)</span>. On the other hand <span class="math inline">\(\|v_{i+1}\| &gt; \|w_{i+1}\|\)</span> is not possible by the definition of <span class="math inline">\(\|v_{i+1}\|\)</span> so we have <span class="math inline">\(\|v_{i+1}\| = \|w_{i+1}\|= \lambda_{i+1}\)</span>.</p>
+<p>Generate the vectors <span class="math inline">\(x_1,x_2,\cdots,x_k\)</span> using the <a href="gs_process.html">Gram-Schmidt process</a> on <span class="math inline">\(v_1,v_2,\cdots,v_k\)</span>. Since <span class="math inline">\(\{ v_i\}_{i=1}^{k}\)</span> is free with respect to left-<span class="math inline">\(D_{\mathbb{R}}\)</span> action, we get that <span class="math inline">\(x_1,x_2,\cdots,x_k\)</span> freely generate <span class="math inline">\(D_{\mathbb{R}}^{k}\)</span> as a left-<span class="math inline">\(D_{\mathbb{R}}\)</span> module. Caution is advised here, since this is a non-commutative variant of the usual Gram-Schmidt algorithm. See <a href="gs_process.html">the page</a> for details.</p>
+<p>Now consider the <span class="math inline">\(\mathbb{R}\)</span>-linear map given by <span class="math display">\[\begin{align}
+  T: y \mapsto \frac{y_i}{\lambda_i} x_1 + \frac{y_2}{ \lambda_2} x_2 + \cdots \frac{y_k}{ \lambda_k} x_k , \\ \text{ for }y = y_1x_1+y_2x_2 + \cdots +y_kx_k \in D_{\mathbb{R}}^{k}.
+  \end{align}\]</span></p>
+<p>Now create a lattice <span class="math inline">\(\Lambda&#39;\)</span> as <span class="math display">\[\begin{align}
+  \Lambda&#39; =  (\lambda_1 \lambda_2 \ldots \lambda_k)^{ {1}/{k}}T(\Lambda)
+\end{align}\]</span> Observe that <span class="math inline">\(\det(\Lambda&#39;) = \det(\Lambda)\)</span>. For any <span class="math inline">\(y&#39; \in \Lambda&#39; \setminus \{ 0\}\)</span>, we can find a <span class="math inline">\(y = y_1 x_1 + \cdots + y_k x_k \in \Lambda\)</span> such that <span class="math inline">\(y&#39; = (\lambda_1\cdots \lambda_k)^{1/k} T ( y)\)</span>. Furthermore, there must be a smallest <span class="math inline">\(i_0 \ge 1\)</span> that <span class="math inline">\(y_{i_0} \neq 0\)</span> and <span class="math inline">\(y_{i_0+1} = y_{i_0+2} = \cdots = y_{k} = 0\)</span>. Then <span class="math inline">\(y \in \Lambda \cap ( D_{\mathbb{R}} v_1 + D_{\mathbb{R}} v_2 + \cdots + D_{\mathbb{R}} v_{i_0})\)</span> and not in <span class="math inline">\(\Lambda \cap ( D_{\mathbb{R}} v_1 + \cdots + D_{\mathbb{R}} v_{i_0 - 1} )\)</span>. Therefore <span class="math inline">\(\|y\| \ge \lambda_{i_0}\)</span>. This implies that <span class="math display">\[\begin{align}
+  \|y&#39;\|^{2} = \left( \lambda_1 \lambda_2 \ldots \lambda_k \right)^{2/k} \sum_{i=1}^{i_0} \left| \frac{y_i}{\lambda_i}\right|^{2}   \ge \left( \lambda_1 \lambda_2 \ldots \lambda_k \right)^{2/k} \frac{1}{\lambda_{i_0}^{2}} \sum_{i=1}^{k}\left| {y_1}\right|^{2} \ge (\lambda_1 \ldots \lambda_k)^{2/k}
+\end{align}\]</span> This lower bound is tight, since we can set <span class="math inline">\(y_1=1_{D_{\mathbb{R}}}\)</span> and the rest <span class="math inline">\(y_i=0\)</span> for <span class="math inline">\(i \ge 2\)</span>.</p>
+</div>
+<p> </p>
+<div class="remark">
+<p>It is not implied in the Theorem that <span class="math inline">\(v_1,v_2,\cdots,v_k\)</span> generate <span class="math inline">\(\Lambda\)</span> as an <span class="math inline">\(\mathcal{O}\)</span>-module. Consider the case with <span class="math inline">\(k \ge 4\)</span>, <span class="math inline">\(D=\mathbb{Q}\)</span> and <span class="math inline">\(\mathcal{O}=\mathbb{Z}\)</span>, let <span class="math inline">\(\Lambda= 2 \mathbb{Z}e_1 + 2\mathbb{Z}e_2 +\cdots + 2 \mathbb{Z} e_{k-1} + \mathbb{Z}(e_1+e_2+\cdots+ e_k)\)</span>. Then all <span class="math inline">\(\lambda_i = 2 = \|2 e_{i}\|\)</span> with the standard norm in <span class="math inline">\(\mathbb{R}^{k}\)</span> but any <span class="math inline">\(\mathbb{Z}\)</span>-basis must contain at least one vector of length at least <span class="math inline">\(\sqrt{k}\)</span>.</p>
+<p>Indeed, let <span class="math inline">\(v_1, v_2,\cdots,v_k \subseteq \mathbb{Z}^{k}\)</span> be a <span class="math inline">\(\mathbb{Z}\)</span>-basis. If all <span class="math inline">\(v_i\)</span> have even coordinates, then they cannot be generating <span class="math inline">\(\Lambda\)</span>. So at least one of them has odd coordinates, but this will force it to have a length of bigger than <span class="math inline">\(\sqrt{k}\)</span></p>
+</div>
+<h2 id="effectiveness">Effectiveness</h2>
+<p>This theorem can be made effective. For the case where <span class="math inline">\(D=\mathbb{Q}\)</span>, this is the subject of the SMP (Successive Minima Problem). The idea is that it can be reduced to finitely many calls to a variant of the <a href="svp.html">SVP</a> algorithm, which is demonstrably deterministic.</p>
+<p>See <span class="citation" data-cites="M12">[<a href="#ref-M12" role="doc-biblioref">3</a>]</span>.</p>
+<h2 id="reduction-theory">Reduction theory</h2>
+<div class="question">
+<p>The proof is very similar to the proof of Minkowski-Siegel reduction theory given in Theorem 3 of <span class="citation" data-cites="W58">[<a href="#ref-W58" role="doc-biblioref">2</a>]</span>. What is the role of the lattice <span class="math inline">\(\Lambda&#39;\)</span> there?</p>
+<p>The <em>v2</em> of <span class="citation" data-cites="G21">[<a href="#ref-G21" role="doc-biblioref">4</a>]</span> might have some hints.</p>
+</div>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-V11" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">S. Vance, Improved sphere packing lower bounds from <span>H</span>urwitz lattices. <em>Advances in Mathematics</em>, <strong>227</strong> (2011) 2144–2156. <a href="https://doi.org/10.1016/j.aim.2011.04.016">https://doi.org/10.1016/j.aim.2011.04.016</a>.</div>
+</div>
+<div id="ref-W58" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">A. Weil, <em>Discontinuous subgroups of classical groups: lectures</em> (University of Chicago, 1958).</div>
+</div>
+<div id="ref-M12" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">D. Micciancio &amp; S. Goldwasser, <em>Complexity of lattice problems: A cryptographic perspective</em> (Springer Science &amp; Business Media, 2012).</div>
+</div>
+<div id="ref-G21" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">4. </div><div class="csl-right-inline">N. P. Gargava, Lattice packings through division algebras. (2021).</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on October 19, 2021.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

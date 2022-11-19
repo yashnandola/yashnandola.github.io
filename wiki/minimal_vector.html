@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2021-10-04" />
+  <title>Minimal Vector of a Lattice</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Minimal Vector of a Lattice</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#relation-to-svp">Relation to SVP</a></li>
+</ul>
+</nav>
+<p>The minimal vector length of a lattice is a continuous function on the <a href="space_of_lattices.html">space of lattices</a>. Since space of lattices is <span class="math inline">\(GL_n(\mathbb{R})/GL_n(\mathbb{Z})\)</span> with the continuous topology, the following lemma is sufficient to show this.</p>
+<div class="lemma">
+<p>The following is a continuous function on <span class="math inline">\(GL_n(\mathbb{R})\)</span>. <span class="math display">\[\begin{align}
+    g \mapsto \min_{x \in \mathbb{Z}^{n} \setminus \{ 0\}} \| gx\|.
+  \end{align}\]</span></p>
+</div>
+<div class="proof">
+<p>The function is basically the <span class="math inline">\(\min\)</span> over a countable set of functions. However for any point <span class="math inline">\(g_0 \in GL_n(\mathbb{R})\)</span> the function is equal to a <span class="math inline">\(\min\)</span> over finitely many functions in an open neighbourhood of <span class="math inline">\(g_0\)</span>.</p>
+<p>Take <span class="math inline">\(\Omega\)</span> to be any relatively compact set around <span class="math inline">\(g_0\)</span>. Fix a vector <span class="math inline">\(x_0 \in \mathbb{Z}^{n} \setminus \{ 0\}\)</span>. For a <span class="math inline">\(g \in \Omega\)</span>, the output of the function above will be <span class="math inline">\(\|g x_g\|\)</span> where <span class="math inline">\(x_g \in \mathbb{Z}^{n} \setminus \{ 0\}\)</span> is a vector which satisfies <span class="math display">\[\begin{align}
+    \|g x_g\| \le \| g y\|, \  \forall y \in \mathbb{Z}^{n} \setminus \{ 0\}.
+  \end{align}\]</span> In particular, <span class="math inline">\(\|g x_g\| \le \|g x_0\|\)</span> and therefore for some constant <span class="math inline">\(R_{\Omega} &gt; 0\)</span> we have <span class="math display">\[\begin{align}
+  \|x_{g}\| = \|g^{-1} g x_{g}\| \le \|g^{-1}\| \|g x_{g}\| \le \|g^{-1}\| \|g x_{0}\| \le R_{\Omega}.
+\end{align}\]</span> Here, <span class="math inline">\(\|g^{-1}\|\)</span> is the operator norm on <span class="math inline">\(g^{-1}\)</span>. Hence, for <span class="math inline">\(g \in \Omega\)</span>, the function is actually the same as <span class="math display">\[\begin{align}
+  g \mapsto \min_{\substack{ x\in \mathbb{Z}^{n} \setminus \{ 0\} \\ \|x\| \le R_{\Omega}}} \|gx\|.
+\end{align}\]</span></p>
+</div>
+<h2 id="relation-to-svp">Relation to SVP</h2>
+<p>Although the function is a continuous function of matrices <span class="math inline">\(g \in GL_n(\mathbb{R})\)</span>, finding the value computationally amounts to solving the <a href="svp.html">SVP</a> problem</p>
+<hr />
+	<small>	<p class="date">This page was updated on October 4, 2021.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

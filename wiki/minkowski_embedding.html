@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-05-02" />
+  <title>Minkowski’s embedding</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Minkowski’s embedding</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#uses">Uses</a>
+<ul>
+<li><a href="#sphere-packing">Sphere packing</a></li>
+<li><a href="#dirichlets-unit-theorem">Dirichlet’s unit theorem</a></li>
+<li><a href="#discriminant-of-a-number-field">Discriminant of a number field</a></li>
+</ul></li>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<p>Let <span class="math inline">\(K\)</span> be a number field. Denote <span class="math inline">\(K_{\mathbb{R}} = K \otimes_{\mathbb{Q}} \mathbb{R}\)</span>. Then the ring of integers of <span class="math inline">\(\mathcal{O}_{K}\)</span> of <span class="math inline">\(K\)</span> forms a discrete subgroup of largest possible rank within <span class="math inline">\(K_{\mathbb{R}}\)</span>.</p>
+<p>If <span class="math inline">\(K\)</span> has <span class="math inline">\(r_1\)</span> real embeddings and <span class="math inline">\(r_2\)</span> complex embeddings then after choosing one representative from each pair of complex embeddings, we have the following isomorphism as <span class="math inline">\(\mathbb{R}\)</span>-algebras. <span class="math display">\[\begin{align}
+K_{\mathbb{R}} \simeq &amp; \mathbb{R}^{r_1} \oplus \mathbb{C}^{r_2}\\
+x \otimes 1 \mapsto &amp; (\sigma(x))_{\sigma:K \rightarrow \mathbb{R}\text{ or }\mathbb{C}}
+\end{align}\]</span></p>
+<h1 id="uses">Uses</h1>
+<h2 id="sphere-packing">Sphere packing</h2>
+<p>Used in <span class="citation" data-cites="AV">[<a href="#ref-AV" role="doc-biblioref">1</a>]</span> and <span class="citation" data-cites="M16">[<a href="#ref-M16" role="doc-biblioref">2</a>]</span>.</p>
+<p>See <a href="smt.html">Siegel Mean Value theorem</a> and <a href="lattice_packing_constant.html">sphere packing constant</a>.</p>
+<p>Also see <a href="ideal_lattices.html">ideal_lattices</a>.</p>
+<h2 id="dirichlets-unit-theorem">Dirichlet’s unit theorem</h2>
+<p>See <a href="dut.html">the page</a>.</p>
+<h2 id="discriminant-of-a-number-field">Discriminant of a number field</h2>
+<p>On <span class="math inline">\(K_{\mathbb{R}}\)</span>, we can set the measure natural Lebesgue measure induced by the identification given above. In terms of this measure, <span class="math display">\[\sqrt{D_{K}} = \mathop{\mathrm{vol}}(K_{\mathbb{R}} / \mathcal{O}_{K}),\]</span> which is to say that the <a href="discriminant.html">discriminant of the number field</a> is the square of the volume of the ring of integers with respect to the Minkowski’s embedding.</p>
+<p><strong>CAUTION:</strong> Here <span class="math inline">\(K_{\mathbb{R}}\)</span> is embedded with the <strong>Minkowski metric</strong>, as mentioned in <span class="citation" data-cites="Neu13">[<a href="#ref-Neu13" role="doc-biblioref">3</a>]</span>. This differs from the Lebesgue measure ( obtained by identifying <span class="math inline">\(K_{\mathbb{R}} \simeq \mathbb{R}^{[K:\mathbb{Q}]}\)</span> ) by a factor of <span class="math inline">\(2^{r_2}\)</span>.</p>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-AV" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">A. Venkatesh, A note on sphere packings in high dimension. <em><span>International Mathematics Research Notices</span></em>, <strong>2013</strong> (2013) 1628–1642. <a href="https://doi.org/10.1093/imrn/rns096">https://doi.org/10.1093/imrn/rns096</a>.</div>
+</div>
+<div id="ref-M16" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">P. Moustrou, On the density of cyclotomic lattices constructed from codes. <em>International Journal of Number Theory</em>, <strong>13</strong> (2016). <a href="https://doi.org/10.1142/S1793042117500695">https://doi.org/10.1142/S1793042117500695</a>.</div>
+</div>
+<div id="ref-Neu13" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">3. </div><div class="csl-right-inline">J. Neukirch, <em>Algebraic number theory</em> (Springer Science &amp; Business Media, 2013).</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on May 2, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

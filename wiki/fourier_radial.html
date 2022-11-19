@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-02-09" />
+  <title>Fourier transform on radial functions</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Fourier transform on radial functions</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#relation-to-the-hankel-transform">Relation to the Hankel transform</a></li>
+<li><a href="#identity-with-laplacian">Identity with Laplacian</a></li>
+<li><a href="#examples">Examples</a>
+<ul>
+<li><a href="#gaussians">Gaussians</a>
+<ul>
+<li><a href="#polynomial-times-gaussian">Polynomial times Gaussian</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<p>Recall that <a href="fourier.html">Fourier</a> transform <span class="math inline">\(\hat{f} = \mathcal{F}(f)\)</span> of admissible functions <span class="math inline">\(f\)</span>.</p>
+<p>Suppose <span class="math inline">\(f:\mathbb{R}^{d} \rightarrow \mathbb{R}\)</span> is a real-valued radial function, i.e. <span class="math inline">\(f(x)\)</span> only depends only on <span class="math inline">\(\|x\|\)</span>. In this case, we have that <span class="math inline">\(\hat{f}\)</span> is also real-valued radial and moreover <span class="math display">\[\begin{align}
+  \hat{f}(t)=2 \pi \| t\|^{-\alpha} \int_{0}^{\infty} f(r) J_{\alpha}(2 \pi r \| t\|)r^{\alpha + 1} dr,
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(\alpha=d/2-1\)</span> and <span class="math inline">\(J_{\alpha}\)</span> is the <a href="bessel.html">Bessel function</a> of order <span class="math inline">\(\alpha\)</span>.</p>
+<h1 id="relation-to-the-hankel-transform">Relation to the Hankel transform</h1>
+<p>In terms of the <a href="hankel.html">Hankel tranform</a> <span class="math inline">\(F_\nu\)</span>, we have</p>
+<p><span class="math display">\[\begin{align}
+  (2 \pi)^{-1}k^{\alpha}\hat{f}(k) =   F_{\alpha}(f_1)(2 \pi k), \text{ where } f_{1}(r) = r^{\alpha} f(r)
+\end{align}\]</span></p>
+<h1 id="identity-with-laplacian">Identity with Laplacian</h1>
+<p>Consider the <a href="laplacian.html">Laplacian</a> on <span class="math inline">\(\mathbb{R}^{d}\)</span> given by <span class="math display">\[\begin{align}
+  L = \frac{1}{4 \pi^{2}} \sum_{i=1}^{d} \frac{\partial^{2}}{\partial x_{i}^{2}}
+\end{align}\]</span></p>
+<p>We then have the following identity for any admissible radial function <span class="math inline">\(f:\mathbb{R}_{\ge 0} \rightarrow \mathbb{R}\)</span>. Suppose <span class="math inline">\(f_1(x) = - \|x\|^{2}f(\|x\|)\)</span>, then <span class="math display">\[\begin{align}
+  \mathcal{F}(f_1)(x) = L\hat{f}(t).
+\end{align}\]</span></p>
+<p>The Laplacian on radial functions acts as <span class="math display">\[\begin{align}
+  u \mapsto  \frac{1}{4 \pi^{2}} u&#39;&#39;(\|t\|) + \frac{d-1}{4 \pi^{2} \|t\|} u&#39;(\|t\|).
+\end{align}\]</span></p>
+<h1 id="examples">Examples</h1>
+<h2 id="gaussians">Gaussians</h2>
+<p>Fourier transform of <span class="math inline">\(e^{-\pi C \|x\|^{2}}\)</span> is <span class="math inline">\({C^{-d/2}}e^{- \tfrac{ \pi}{ C} \|x\|^{2}}\)</span>. Here <span class="math inline">\(d\)</span> is the dimension.</p>
+<h3 id="polynomial-times-gaussian">Polynomial times Gaussian</h3>
+<p>Suppose <span class="math inline">\(p(r^2)\)</span> is a polynomial in the radius and consider <span class="math inline">\(f(x) = p(\|x\|^2)e^{- \pi C \|x\|^2}\)</span>.</p>
+<p>Then, we have that <span class="math inline">\(\hat{f}(x) ={C^{-d/2}} p(-L) e^{- \tfrac{ \pi}{ C} \|x\|^{2}}\)</span>.</p>
+<p>From here the action of <span class="math inline">\(p(-L)\)</span> on <span class="math inline">\(e^{- \tfrac{\pi}{C} \|x\|^2}\)</span> can be calculated recursively.</p>
+<hr />
+	<small>	<p class="date">This page was updated on February 9, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

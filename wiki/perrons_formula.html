@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-04-06" />
+  <title>Perron’s Formula</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Perron’s Formula</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#bibliography">References</a></li>
+</ul>
+</nav>
+<div class="lemma">
+<p>Let <span class="math inline">\(x \in \mathbb{R}\)</span>. Then, we have that for <span class="math inline">\(c \in \mathbb{R}\)</span> <span class="math display">\[\begin{align}
+    \frac{1}{2\pi i}\int_{c-i \infty }^{c + i \infty} e^{xs} \frac{ds}{s} = \begin{cases}1 &amp; x &gt; 0\\
+      \tfrac{1}{2} &amp; x=0 \\
+      0 &amp; x &lt; 0 
+    \end{cases}.
+  \end{align}\]</span></p>
+</div>
+<p>The implication of this lemma is the following theorem of Perron. This version is as stated in <span class="citation" data-cites="H13">[<a href="#ref-H13" role="doc-biblioref">1</a>]</span>. Proof can be found therein.</p>
+<div class="theorem">
+<p><strong>(Perron)</strong> Let <span class="math inline">\(f(s) = \sum_{i=1}^{n} a_{i} e^{-\lambda_i s}\)</span> be a <a href="https://en.wikipedia.org/wiki/General_Dirichlet_series">general Dirichlet series</a>. This means that <span class="math inline">\(a_i,s \in \mathbb{C}\)</span> and <span class="math inline">\(\lambda_i\)</span> is a strictly increasing sequence of real numbers.</p>
+<p>Let <span class="math inline">\(\sigma \in \mathbb{R}\)</span> be such that the Dirichlet series of <span class="math inline">\(f(s)\)</span> is convergent for <span class="math inline">\(\Re(s) &gt; \sigma\)</span>. Let <span class="math inline">\(c \in \mathbb{R}\)</span> be such that <span class="math inline">\(c &gt; 0\)</span> and <span class="math inline">\(c &gt; \sigma\)</span>. Let <span class="math inline">\(w \in \mathbb{R}\)</span> be such that <span class="math inline">\(\lambda_n &lt; w &lt; \lambda_{n+1}\)</span>. Then <span class="math display">\[\begin{align}
+    \frac{1}{2 \pi i} \int_{c - i \infty}^{c+i \infty} f(s)e^{ws} \frac{ds}{s} = \sum_{i=1}^{n} a_{i}.
+  \end{align}\]</span></p>
+</div>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-H13" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">G. H. Hardy &amp; M. Riesz, <em>The general theory of dirichlet’s series</em> (Courier Corporation, 2013).</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on April 6, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

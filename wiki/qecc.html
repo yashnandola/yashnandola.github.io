@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-10-27" />
+  <title>Quantum Error Correcting Code</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Quantum Error Correcting Code</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#relation-to-error-correcting-codes"
+id="toc-relation-to-error-correcting-codes">Relation to error-correcting
+codes</a></li>
+<li><a href="#bibliography" id="toc-bibliography">References</a></li>
+</ul>
+</nav>
+<p>Let <span class="math inline">\(V=\mathbb{C}^{2}\)</span>. Let <span
+class="math inline">\(G \subset U(V)\)</span> be a finite group of
+unitary operators defined as <span class="math display">\[\begin{align}
+    \left\langle
+      \begin{bmatrix} 0 &amp; 1 \\ 1 &amp; 0\end{bmatrix}
+      \begin{bmatrix} 1 &amp; 0 \\ 0 &amp; -1\end{bmatrix}
+      \begin{bmatrix} 0 &amp; -i \\ i &amp; 0\end{bmatrix}
+      \right\rangle.
+  \end{align}\]</span> These three matrices are called <a
+href="pauli.html">Pauli</a> matrices and they have an interpretations as
+a bit error, phase error and a combination of bit and phase error
+respectively.</p>
+<p>Note that <span class="math inline">\(G^{n}\)</span> acts on <span
+class="math inline">\(V^{\otimes n}\)</span> naturally. We can identify
+<span class="math inline">\(G^{n} \subseteq U(V^{\otimes n}) =
+U(2^{n})\)</span>. <span class="math inline">\(G^{n}\)</span> is a
+finite group, and the weight function <span
+class="math display">\[\begin{align}
+    w : G^n &amp;  \rightarrow \mathbb{Z}_{\ge 0} \\
+    (g_1,g_2,\ldots,g_n) &amp; \mapsto \#\left\{ i \in \{ 1,2,\ldots,n\}
+\ | \ g_i \neq \begin{bmatrix}1 &amp; 0 \\ 0 &amp; 1
+\end{bmatrix}\right\}  .
+  \end{align}\]</span></p>
+<p>We can define the Pauli group <span
+class="math inline">\(\mathcal{G}_{n} = \{ \pm 1, \pm i\}
+G^{n}\)</span>. That extra scalar in <span class="math inline">\(\{ \pm
+1, \pm i\}\)</span> is called the global phase. We can extend the weight
+function <span class="math inline">\(w\)</span> on <span
+class="math inline">\(\mathcal{G}_{n}\)</span> by ignoring the effect on
+the global phase.</p>
+<div class="definition">
+<p>An <span class="math inline">\([n,k,d]\)</span> quantum error
+correcting code is a subspace <span class="math inline">\(W \subset
+V^{\otimes n}\)</span> such that <span
+class="math inline">\(\dim_{\mathbb{C}} W = 2^{k}\)</span> and for every
+<span class="math inline">\(g \in \mathcal{G}_{n}\)</span> such that
+<span class="math inline">\(w(g) \le d\)</span>, we have <span
+class="math display">\[\begin{align}
+    v \in W \Rightarrow gv - v\in W^{\perp}.
+  \end{align}\]</span></p>
+</div>
+<p>There is also the book <span class="citation" data-cites="NC02">[<a
+href="#ref-NC02" role="doc-biblioref">1</a>]</span> about this subject.
+Things written by Daniel Gottesman are very accessible for
+mathematicians, in particular the PhD thesis <span class="citation"
+data-cites="G1997">[<a href="#ref-G1997"
+role="doc-biblioref">2</a>]</span>.</p>
+<h1 id="relation-to-error-correcting-codes">Relation to error-correcting
+codes</h1>
+<p>In classical binary error-correcting <a href="codes.html">codes</a>,
+each information is a bit. The errors are propagated as binary random
+variables adding randomly at coordinates.</p>
+<p>Here, the information is a qubit, which is seen as one copy of <span
+class="math inline">\(V\)</span>. The errors act as Pauli matrices on
+<span class="math inline">\(V\)</span>.</p>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-NC02" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">M.
+A. Nielsen &amp; I. Chuang, <em>Quantum computation and quantum
+information</em> (American Association of Physics Teachers, 2002).</div>
+</div>
+<div id="ref-G1997" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">2. </div><div class="csl-right-inline">D.
+Gottesman, <em>Stabilizer codes and quantum error correction</em>
+(California Institute of Technology, 1997).</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on October 27, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

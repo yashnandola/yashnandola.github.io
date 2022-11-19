@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-02-09" />
+  <title>Hankel Transform</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Hankel Transform</h1>
+</header>
+<p>The Hankel transform of a function <span class="math inline">\(f: \mathbb{R}_{\ge 0} \rightarrow \mathbb{R}\)</span> is given by</p>
+<p><span class="math display">\[\begin{align}
+  F_\nu(k) = \int_0^\infty f(r) J_\nu(kr) \,r\,\mathrm{d}r,
+\end{align}\]</span></p>
+<p>This makes sense for all compactly supported functions, for example, when <span class="math inline">\(\nu &gt; -1/2\)</span>.</p>
+<p>The inverse Hankel transform of <span class="math inline">\(F_\nu(k)\)</span> is defined as</p>
+<p><span class="math display">\[\begin{align}
+f(r) = \int_0^\infty F_\nu(k) J_\nu(kr) \,k\,\mathrm{d}k,
+\end{align}\]</span></p>
+<p>This transform is closely related to the <a href="fourier_radial.html">Fourier transform of radial functions</a>.</p>
+<hr />
+	<small>	<p class="date">This page was updated on February 9, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

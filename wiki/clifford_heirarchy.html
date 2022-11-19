@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-10-27" />
+  <title>Clifford heirarchy</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Clifford heirarchy</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#bibliography" id="toc-bibliography">References</a></li>
+</ul>
+</nav>
+<p>Defined inductively as given below.</p>
+<p>Consider <span class="math inline">\(n\)</span> qubits and the <a
+href="gate.html">gate</a> set <span
+class="math inline">\(PU(2^n)\)</span>.</p>
+<p><span class="math inline">\(\mathcal{C}^{(1)} \subseteq
+PU(2^n)\)</span> be the group of <a href="pauli.html">Pauli</a>
+operators. We then define</p>
+<p><span class="math display">\[ \mathcal{C}^{(n)} = \{ U \ | \ UPU^*
+\in \mathcal{C}^{(n-1)},\ \forall P \in \mathcal{C}^{(1)} \} .
+\]</span></p>
+<p>See <span class="citation" data-cites="CGK17">[<a href="#ref-CGK17"
+role="doc-biblioref">1</a>]</span> for a good reference.</p>
+<h1 class="unnumbered" id="bibliography">References</h1>
+<div id="refs" class="references csl-bib-body" role="doc-bibliography">
+<div id="ref-CGK17" class="csl-entry" role="doc-biblioentry">
+<div class="csl-left-margin">1. </div><div class="csl-right-inline">S.
+X. Cui, D. Gottesman, &amp; A. Krishna, Diagonal gates in the
+<span>C</span>lifford hierarchy. <em>Physical Review A</em>,
+<strong>95</strong> (2017) 012329.</div>
+</div>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on October 27, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

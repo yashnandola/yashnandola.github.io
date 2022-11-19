@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2021-09-25" />
+  <title>Topological Quantum Field Theory</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Topological Quantum Field Theory</h1>
+</header>
+<p>A topological quantum field theory is basically a <a href="https://en.wikipedia.org/wiki/Monoidal_functor">monoidal functor</a> among the following <a href="monoidal_category">monoidal categories</a>.</p>
+<p><span class="math display">\[\begin{align}
+  F:\mathbf{Cob}_{d} \rightarrow \mathbf{Vec}_k
+\end{align}\]</span></p>
+<p>Here <span class="math inline">\(\mathop{\mathrm{\mathbf{Cob}}}_{d}\)</span> is the category of closed compact manifolds of <span class="math inline">\(d-1\)</span> dimensions upto diffeomorphisms where the monoidal product is direct sum and morphisms are cobordisms, that is <span class="math inline">\(d\)</span>-dimensional manifold with boundary (whenever they exist) such that the boundary is the disjoint union of the endpoints. We add the empty manifold in <span class="math inline">\(\mathop{\mathrm{\mathbf{Cob}}}_{d}\)</span> that is the unit of the category.</p>
+<p><span class="math inline">\(\mathop{\mathrm{\mathbf{Vec}}}_{k}\)</span> is just the monoidal category of <span class="math inline">\(k\)</span>-vector spaces.</p>
+<p><span class="math inline">\(\mathop{\mathrm{\mathbf{Cob}}}_{2}\)</span> is a category whose objects are just disjoint union of circles. The morphisms then look like pipes, pants, etc. For a 2-dimensional TQFT, having this functor is equivalent to having a Frobenious algebra, which is the image of a circle under the functor. What is a Frobeious algebra? This could be the definition!</p>
+<p>Since each <span class="math inline">\(d\)</span>-manifold is a cobordism between two empty sets and since empty set is mapped to the unit in <span class="math inline">\(\mathop{\mathrm{\mathbf{Vec}}}_{k}\)</span> which is <span class="math inline">\(k\)</span>, a <span class="math inline">\(d\)</span>-dimensional TQFT maps a <span class="math inline">\(d\)</span>-dimensional manifold to a scalar multiplication map in <span class="math inline">\(k\)</span>. Hence, each TQFT gives a topological invariant of <span class="math inline">\(d\)</span>-dimensional manifolds taking values in <span class="math inline">\(k\)</span>. Using this, one can recover the Jones polynomial as a 3-dimensional TQFT.</p>
+<p>3-dimensional TQFT are related to Hopf-algebras, but not in a functorial manner. The one that recovers Jones polynomial is the universal algebra of <span class="math inline">\(\mathfrak{sl}_{2}(\mathbb{R})\)</span>.</p>
+<p><strong>WARNING</strong>: This page is written based on hearsay.</p>
+<hr />
+	<small>	<p class="date">This page was updated on September 25, 2021.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

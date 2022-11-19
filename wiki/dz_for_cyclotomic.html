@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2021-11-03" />
+  <title>Dedekind-Zeta Function for Cyclotomic Fields.</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Dedekind-Zeta Function for Cyclotomic Fields.</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#series-expansion">Series expansion</a></li>
+<li><a href="#computational-aspects">Computational aspects</a>
+<ul>
+<li><a href="#program-for-computing-zeta_ks-for-real-s">Program for computing <span class="math inline">\(\zeta_{K}(s)\)</span> for real <span class="math inline">\(s\)</span></a></li>
+<li><a href="#program-for-computing-the-series-expansion.">Program for computing the series expansion.</a>
+<ul>
+<li><a href="#some-outputs">Some outputs</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<p>The following lemma allows easy computation of the <a href="dedekind_zeta.html">Dedekind-zeta function</a> when the field is a cyclotomic extension of <span class="math inline">\(\mathbb{Q}\)</span>.</p>
+<div class="lemma">
+<p>When <span class="math inline">\(K=\mathbb{Q}(\mu_{n})\)</span>, the <span class="math inline">\(n\)</span>th cyclotomic field, then we have <span class="math display">\[\begin{align}
+  \zeta_K(s)  = \prod_{  p \in \mathbb{P } } \frac{1}{\left( 1 -  \frac{1}{p^{ s\  \mathop{\mathrm{ord}}_{n_{p}}\ p  }} \right)^{\frac{\varphi(n_{p})}{\mathop{\mathrm{ord}}_{n_{p}} \ p}} } ,
+\end{align}\]</span> where <span class="math inline">\(n_{p} = n p^{-\nu_{p}(n)}\)</span>, that is <span class="math inline">\(n\)</span> with all powers of <span class="math inline">\(p\)</span> removed.</p>
+</div>
+<div class="proof">
+<p>Since <span class="math inline">\(\mathcal{O}_{K} = \mathbb{Z}[\mu_{n}]\)</span>, we can use <a href="dedekind_factorization.html">Dedekind’s factorization lemma</a>. Let <span class="math inline">\(\Phi_{n}(X) \in \mathbb{Z}[X]\)</span> be the <span class="math inline">\(n\)</span>th cyclotomic polynomial. So <span class="math display">\[\begin{align}
+    &amp; \Phi_{n}(X) \equiv f_1(X)^{e_1}f_{2}(X)^{e_2}\ldots f_r(X)^{e_r} \pmod{p},\\
+    \Rightarrow &amp; p \mathcal{O}_{K} = \mathcal{P}_{1}^{e_1} \mathcal{P}_{2}^{e_2} \ldots \mathcal{P}_{r}^{e_r}
+  \end{align}\]</span> for some <span class="math inline">\(r&gt;0\)</span> and <span class="math inline">\(e_1,e_2,\cdots,e_r \ge 1\)</span>. Now <span class="math inline">\(\mathop{\mathrm{N}}(\mathcal{P})= p^{\deg f_i(X)}\)</span>. What are the roots of <span class="math inline">\(\Phi_n(X)\)</span>?</p>
+<p>If <span class="math inline">\(p \mid n\)</span>, then <span class="math inline">\(p\)</span> is ramified. In this case, there are no primitive <span class="math inline">\(n\)</span>th roots of unity in <span class="math inline">\(\overline{\mathbb{F}}_p\)</span> since <span class="math inline">\(X^{n} - 1 = (X^{n_{p}}-1)^{p^{\nu_{p}(n)}}\)</span>, where <span class="math inline">\(n_p\)</span> is as in the statement of the lemma. So the set of roots of <span class="math inline">\(\Phi_n(X)\)</span> in <span class="math inline">\(\overline{\mathbb{F}}_p\)</span> are the primitive <span class="math inline">\(n_{p}\)</span>th roots each repeated <span class="math inline">\(p^{\nu_{p}(n)}\)</span> times.</p>
+<p>So we consider the case when <span class="math inline">\(p \nmid n\)</span>. In the algebraic closure <span class="math inline">\(\overline{\mathbb{F}}_p\)</span>, the Frobenious automorphism acts on the primitive <span class="math inline">\(n\)</span>th roots of unity. We can <a href="irreducibles_in_cyclotomic_mod_p.html">count the orbits</a> by considering the following multiplication by <span class="math inline">\(p\)</span> map. <span class="math display">\[\begin{align}
+    L_{p} : \left( \frac{\mathbb{Z}}{n \mathbb{Z}} \right)^{*}  &amp; \rightarrow \left( \frac{\mathbb{Z}}{n \mathbb{Z}} \right)^{*}\\
+    x \ \ \ \ \  &amp; \mapsto \ \ \ \  p x.
+  \end{align}\]</span> This map has <span class="math inline">\(\varphi(n)/\mathop{\mathrm{ord}}_n p\)</span> orbits of size <span class="math inline">\(\mathop{\mathrm{ord}}_{n} p\)</span>. Hence, each <span class="math inline">\(f_i(X)\)</span> above will have degree <span class="math inline">\(\mathop{\mathrm{ord}}_{n} p\)</span> and there are <span class="math inline">\(\varphi(n)/\mathop{\mathrm{ord}}_{n} p\)</span> such polynomials. This gives us all the prime ideals above <span class="math inline">\(p\)</span> and their norms.</p>
+</div>
+<h1 id="series-expansion">Series expansion</h1>
+<p>Based on the Euler product above, we can give a series expansion as well when <span class="math inline">\(K = \mathbb{Q}(\mu_{n})\)</span> as above. We have for <span class="math inline">\(\Re(s)&gt;1\)</span> <span class="math display">\[\begin{align}
+  \zeta_{K}(s) = \frac{a(1)}{1^{s}} + \frac{a(2)}{2^{s}} + \frac{a(3)}{3^{s}} + \frac{a(4)}{4^{s}} + \ldots
+\end{align}\]</span> where <span class="math inline">\(a(i)\)</span> is the number of ideals of <span class="math inline">\(\mathcal{O}_{K}\)</span> that have norm <span class="math inline">\(i\)</span>. We must have <span class="math display">\[\begin{align}
+  a(m_1m_2) = a(m_1)a(m_2),\ \  \gcd(m_1,m_2)=1,
+\end{align}\]</span> and for a prime <span class="math inline">\(p \in \mathbb{P}\)</span> and <span class="math inline">\(n_{p}\)</span> as above, we have <span class="math display">\[\begin{align}
+  a(p^{m}) = \begin{cases}
+    0 &amp; \mathop{\mathrm{ord}}_{n_p} p \nmid m \\
+    \left( \substack{\frac{\varphi(n_p)}{\mathop{\mathrm{ord}}_{n_p} p}+\frac{m}{\mathop{\mathrm{ord}}_{n_p} p} - 1 \\ \frac{m}{\mathop{\mathrm{ord}}_{n_p} p}} \right)&amp; \mathop{\mathrm{ord}}_{n_p} p \mid m
+  \end{cases}.
+\end{align}\]</span> The non-zero term above is just <span class="math display">\[\# \{ (x_1,x_2,\cdots) \in \mathbb{Z}_{\ge 0} ^{\frac{\varphi(n_p)}{\mathop{\mathrm{ord}}_{n_{p}}p}} \ | \ \sum_{i}  x_i = \tfrac{m}{\mathop{\mathrm{ord}}_{n_{p}}p}\}.\]</span> Indeed, the tuples <span class="math inline">\((x_1,x_2,\cdots)\)</span> correspond to the factorization <span class="math inline">\(\mathcal{I}= \mathcal{P}_{1}^{x_1} \mathcal{P}_{2}^{x_2} \ldots\)</span> where <span class="math inline">\(\mathcal{I}\)</span> is an ideal such that <span class="math inline">\(\mathop{\mathrm{N}}(\mathcal{I}) = p^{m}\)</span>.</p>
+<h1 id="computational-aspects">Computational aspects</h1>
+<h2 id="program-for-computing-zeta_ks-for-real-s">Program for computing <span class="math inline">\(\zeta_{K}(s)\)</span> for real <span class="math inline">\(s\)</span></h2>
+<p>The following <code>sage</code> code computes <span class="math inline">\(\zeta_{K}(2)\)</span> for any given <span class="math inline">\(\mathbb{Q}(\mu_n)\)</span> based on the Euler expansion above.</p>
+<p><strong>Caution</strong>: Not accurate for large <span class="math inline">\(n\)</span>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>MAX <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Finding largest power of p that divides n</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> power_in(n,p):</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    k<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> n<span class="op">%</span>p<span class="op">**</span>k<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        k<span class="op">=</span>k<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> k<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>s<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="dv">100</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding Dedekind zeta of Q(mu_n) at s=2</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>DZ<span class="op">=</span><span class="fl">1.00000000</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> p <span class="kw">in</span> prime_range(<span class="dv">1</span>,MAX):</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  a<span class="op">=</span>power_in(n,p)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  m<span class="op">=</span>n<span class="op">/</span>p<span class="op">**</span>a</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  ord_mp <span class="op">=</span> multiplicative_order(mod(p,m))</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>  DZ<span class="op">/=</span>(<span class="dv">1</span><span class="op">-</span><span class="fl">1.0</span><span class="op">/</span>p<span class="op">**</span>(s<span class="op">*</span>ord_mp))<span class="op">**</span>(euler_phi(m)<span class="op">/</span>ord_mp)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> n,DZ</span></code></pre></div>
+<h2 id="program-for-computing-the-series-expansion.">Program for computing the series expansion.</h2>
+<p>The following <code>sage</code> code prints the series expansion <span class="math inline">\(\zeta_{K}(s)\)</span> in <span class="math inline">\(\LaTeX\)</span> for any given <span class="math inline">\(\mathbb{Q}(\mu_n)\)</span> based on the Euler expansion above.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>LARGEST <span class="op">=</span> <span class="dv">10000</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">## Finding largest power of p that divides n</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> power_in(n,p):</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    k<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> n<span class="op">%</span>p<span class="op">**</span>k<span class="op">==</span><span class="dv">0</span>:</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>        k<span class="op">=</span>k<span class="op">+</span><span class="dv">1</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> k<span class="op">-</span><span class="dv">1</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>s<span class="op">=</span><span class="dv">2</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>n<span class="op">=</span><span class="dv">210</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>clist<span class="op">=</span>[]</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Finding Dedekind zeta of Q(mu_n) and putting it in list</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> a <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,LARGEST):</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    prod<span class="op">=</span><span class="dv">1</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (p,<span class="bu">pow</span>) <span class="kw">in</span> factor(a):</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        n_p<span class="op">=</span>n<span class="op">/</span>p<span class="op">**</span>(power_in(n,p))</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        ordp <span class="op">=</span> multiplicative_order(mod(p,n_p))</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> <span class="bu">pow</span><span class="op">%</span>ordp<span class="op">!=</span><span class="dv">0</span>:</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>            prod<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">else</span>:</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>            prod<span class="op">*=</span>binomial((euler_phi(n_p)<span class="op">/</span>ordp)<span class="op">+</span>(<span class="bu">pow</span><span class="op">/</span>ordp)<span class="op">-</span><span class="dv">1</span>,(<span class="bu">pow</span><span class="op">/</span>ordp))</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    clist<span class="op">+=</span>[[a,prod]]</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Printing latex output from list</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>latex_string<span class="op">=</span><span class="st">&#39;</span><span class="ch">\\</span><span class="st">zeta_{</span><span class="ch">\\</span><span class="st">mathbb</span><span class="sc">{Q}</span><span class="st">(</span><span class="ch">\\</span><span class="st">mu_{&#39;</span><span class="op">+</span><span class="bu">str</span>(n)<span class="op">+</span><span class="st">&#39;})}(s)=&#39;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>NTERMS<span class="op">=</span><span class="dv">6</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>count<span class="op">=</span><span class="dv">0</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> [i,a_i] <span class="kw">in</span> clist:</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> a_i<span class="op">!=</span><span class="dv">0</span>:</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>        count<span class="op">+=</span><span class="dv">1</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> count<span class="op">&lt;</span>NTERMS:</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>            latex_string<span class="op">+=</span><span class="st">&#39;</span><span class="ch">\\</span><span class="st">frac{&#39;</span><span class="op">+</span><span class="bu">str</span>(a_i)<span class="op">+</span><span class="st">&#39;}{&#39;</span><span class="op">+</span><span class="bu">str</span>(i)<span class="op">+</span><span class="st">&#39;^s}+&#39;</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>latex_string<span class="op">+=</span><span class="st">&#39;\ldots&#39;</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span> latex_string</span></code></pre></div>
+<h3 id="some-outputs">Some outputs</h3>
+<p><span class="math display">\[
+\zeta_{\mathbb{Q}(\mu_{1024})}(s)=\frac{1}{1^s}+\frac{1}{2^s}+\frac{1}{4^s}+\frac{1}{8^s}+\frac{1}{16^s}+\ldots
+\]</span></p>
+<p><span class="math display">\[
+\zeta_{\mathbb{Q}(\mu_{16})}(s)=\frac{1}{1^s}+\frac{1}{2^s}+\frac{1}{4^s}+\frac{1}{8^s}+\frac{1}{16^s}+\frac{8}{17^s}+\frac{1}{32^s}+\ldots
+\]</span></p>
+<p><span class="math display">\[
+\zeta_{\mathbb{Q}(\mu_{100})}(s)=\frac{1}{1^s}+\frac{2}{5^s}+\frac{3}{25^s}+\frac{40}{101^s}+\frac{4}{125^s}+\ldots
+\]</span></p>
+<p><span class="math display">\[
+\zeta_{\mathbb{Q}(\mu_{210})}(s)=\frac{1}{1^s}+\frac{48}{211^s}+\frac{48}{421^s}+\frac{48}{631^s}+\frac{24}{841^s}+\ldots
+\]</span></p>
+<p><span class="math display">\[
+\zeta_{\mathbb{Q}(\mu_{30})}(s)=\frac{1}{1^s}+\frac{2}{16^s}+\frac{1}{25^s}+\frac{8}{31^s}+\frac{8}{61^s}+\frac{1}{81^s}+\frac{4}{121^s}+\ldots
+\]</span></p>
+<hr />
+	<small>	<p class="date">This page was updated on November 3, 2021.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

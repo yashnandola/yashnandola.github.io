@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2021-09-21" />
+  <title>Basic Triangle Theorem</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Basic Triangle Theorem</h1>
+</header>
+<p>See <a href="ncde.html">NCDE</a> for the background of this theorem.</p>
+<div class="theorem">
+<p> Let <span class="math inline">\(({\mathcal A},d)\)</span> be a <span class="math inline">\(k\)</span>-commutative associative differential algebra with unit (<span class="math inline">\(ker(d)=k\)</span>, a field) and <span class="math inline">\({\mathcal C}\)</span> be a differential {} of <span class="math inline">\({\mathcal A}\)</span> (i.e. <span class="math inline">\(d({\mathcal C})\subset {\mathcal C}\)</span>). : <span class="math display">\[\begin{equation}
+  W(f_1,f_2) = 0 \ \Rightarrow\  \exists (a_1,a_2) \in {k}^{2}\setminus\{ 0\}  \text{ such that }a_1 f_1+ a_2 f_2 = 0,  \ \ \forall f_1\in {\mathcal A}, f_2 \in {\mathcal C}.
+\end{equation}\]</span> Here <span class="math inline">\(W(f_1,f_2)\)</span> is the Wronskian, meaning <span class="math inline">\(W(f_1,f_2)= d(f_1)f_2 - f_1 d(f_2)\)</span>. Let <span class="math inline">\(X\)</span> be some alphabet (i.e. some set) and we define $: $ to be the map given by <span class="math inline">\(\langle \mathbf{d}(S)\mid w \rangle = d(\langle S\mid w \rangle)\)</span>. We suppose that <span class="math inline">\(S\in {\mathcal A}\langle \!\langle X\rangle \!\rangle\)</span> is a solution of the differential equation <span class="math display">\[\begin{equation}
+  \mathbf{d}(S)=MS\ ;\ \langle S\mid 1_{X^{*}} \rangle=1_{{\mathcal A}}
+\end{equation}\]</span> where the multiplier <span class="math inline">\(M\)</span> is a homogeneous series (a polynomial in the case of finite <span class="math inline">\(X\)</span>) of degree <span class="math inline">\(1\)</span>, i.e. <span class="math display">\[\begin{equation}
+M=\sum_{x\in X}u_x x\in {\mathcal C}\langle \!\langle X\rangle \!\rangle\ .
+\end{equation}\]</span> The following conditions are equivalent : 1. The family <span class="math inline">\((\langle S\mid w \rangle)_{w\in X^*}\)</span> of coefficients of <span class="math inline">\(S\)</span> is free over <span class="math inline">\({\mathcal C}\)</span>. 2. The family of coefficients <span class="math inline">\((\langle S\mid y \rangle)_{y\in X\cup \{1_{X^*}\}}\)</span> is free over <span class="math inline">\({\mathcal C}\)</span>. 3. The family <span class="math inline">\((u_x)_{x\in X}\)</span> is such that, for <span class="math inline">\(f_1, f_2\in {\mathcal C}\)</span> , <span class="math inline">\(f_{2} \neq 0\)</span> and <span class="math inline">\(\alpha\in k^{(X)}\)</span> (i.e.  <span class="math inline">\(supp(\alpha)\)</span> is finite) <span class="math display">\[\begin{equation}\label{prim_ind}
+   W(f_1,f_2)=f_2^{2}\sum_{x\in X} \alpha_x u_x \Longrightarrow (\forall x\in X)(\alpha_x=0)\ .
+\end{equation}\]</span></p>
+</div>
+<hr />
+	<small>	<p class="date">This page was updated on September 21, 2021.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>

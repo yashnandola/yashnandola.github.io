@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="dcterms.date" content="2022-09-27" />
+  <title>Dedekind-Zeta Function</title>
+  <style>
+    code{white-space: pre-wrap;}
+        span.smallcaps{font-variant: small-caps;}
+        span.underline{text-decoration: underline;}
+        div.column{display: inline-block; vertical-align: top; width: 50%;}
+        div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+        ul.task-list{list-style: none;}
+        div.csl-bib-body { }
+        div.csl-entry {
+          clear: both;
+        }
+        .hanging div.csl-entry {
+          margin-left:2em;
+          text-indent:-2em;
+        }
+        div.csl-left-margin {
+          min-width:2em;
+          float:left;
+        }
+        div.csl-right-inline {
+          margin-left:2em;
+          padding-left:1em;
+        }
+        div.csl-indent {
+          margin-left: 2em;
+        }  </style>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Dedekind-Zeta Function</h1>
+</header>
+<nav id="TOC" role="doc-toc">
+<h3 id="toc-title">Contents</h3>
+<ul>
+<li><a href="#euler-expansion">Euler expansion</a></li>
+<li><a href="#for-cyclotomic-field">For cyclotomic field</a></li>
+</ul>
+</nav>
+<div class="definition">
+<p>Let <span class="math inline">\(K\)</span> be a number field and let <span class="math inline">\(\mathcal{O}_{K}\)</span> be its ring of integers. <span class="math inline">\(\Re(s)&gt;1\)</span>, we define the Dedekind-zeta function to be <span class="math display">\[\begin{align}
+  \zeta_K(s)  = \sum_{\substack{ \mathcal{I} \subseteq \mathcal{O}_{K} \\ \mathcal{I} \text{ non-zero ideal}  } } \frac{1}{\mathop{\mathrm{N}}(\mathcal{I})^{s}},
+\end{align}\]</span> where <span class="math inline">\(\mathop{\mathrm{N}}(\mathcal{I}) = \# \left( \mathcal{O}_{K} / \mathcal{I}\right)\)</span>.</p>
+</div>
+<h1 id="euler-expansion">Euler expansion</h1>
+<p>For <span class="math inline">\(\Re(s) &gt; 1\)</span>, we have the following product expansion.</p>
+<p><span class="math display">\[\begin{align}
+  \zeta_K(s)  = \prod_{\substack{ \mathcal{P} \subseteq \mathcal{O}_{K} \\ \mathcal{P} \text{ prime ideal}  } } \frac{1}{\left( 1 - \frac{1}{\mathop{\mathrm{N}}(\mathcal{P})^{s}} \right)}.
+\end{align}\]</span></p>
+<h1 id="for-cyclotomic-field">For cyclotomic field</h1>
+<p>For cyclotomic fields, one can evaluate <span class="math inline">\(\zeta_K(s)\)</span> more precisely.</p>
+<p>See <a href="dz_for_cyclotomic.html">Dedekind-zeta for cyclotomic fields</a></p>
+<hr />
+	<small>	<p class="date">This page was updated on September 27, 2022.<br>
+		<a href="index.html">Main Page</a> </p>
+      </small>
+</body>
+</html>
